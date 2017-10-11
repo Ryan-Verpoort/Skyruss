@@ -34,7 +34,7 @@ public:
     void collisions();
     void SpawnAsteroid();
     void SpawnBullets();
-	bool SatellitesDown();
+	void CheckForUpgrade();
 
     int counter = 0;
 
@@ -56,10 +56,10 @@ private:
     bool _satelliteSpawn;
     bool _AsteroidSpawn;
     int Enemies = 0;
+	int NumOfSats = 3;
     int Lives = 3;
     int spawnFactor = 3000;
     int BulletSpawnFactor = 0;
-	bool _Upgrade;
 
     CollisionHandler _collisionHandler;
 };

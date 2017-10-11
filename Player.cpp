@@ -4,6 +4,7 @@
 Player::Player(Screen screen)
     : _screen(screen)
     , _PlayersBullet(_PlayerPosition, _screen)
+    , _upgrade(false)
 {
     _lives = 3;
     _bullets = 0;
@@ -96,6 +97,7 @@ void Player::Respawn()
     _PlayerPosition.setRadius(_screen.getObjectRadius());
     _PlayerPosition.SetInitialX(_screen.getScreenCentreX());
     _PlayerPosition.SetInitialY(_screen.getScreenCentreY());
+    _upgrade = false;
 }
 
 bool Player::isGameOver()
@@ -105,4 +107,14 @@ bool Player::isGameOver()
     } else {
 	return false;
     }
+}
+
+void Player::WeaponUpgrade()
+{
+    _upgrade = true;
+}
+
+bool Player::CheckUpgrade()
+{
+    return _upgrade;
 }

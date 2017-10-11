@@ -7,7 +7,6 @@ GameLogic::GameLogic()
     , _gameState(State::Splash)
     , _satelliteSpawn(false)
     , _AsteroidSpawn(false)
-    , _Upgrade(false)
 {
     srand(time(0));
     _player = make_shared<Player>(_screen);
@@ -40,6 +39,7 @@ void GameLogic::run()
 	    updatePlayerPosition();
 	    updateEntities();
 	    renderObjects();
+	    CheckForUpgrade();
 	    _collisionHandler.CheckForCollisions(_gameObjects);
 	    time_since_last_update -= time_per_frame;
 
@@ -58,8 +58,9 @@ void GameLogic::inputCommands()
 
 void GameLogic::updatePlayerPosition()
 {
+
     if(_presentation._isSpacePressed && counter == 0) {
-	if(_Upgrade) {
+	if(_player->CheckUpgrade()) {
 	    _gameObjects.push_back(_player->Shoot());
 	    _gameObjects.push_back(_player->Shoot());
 	} else {
@@ -91,6 +92,12 @@ void GameLogic::updateEntities()
 {
     for(auto& gameObject : _gameObjects) {
 
+	if(gameObject->GetObject() == Objects::Satellites) {
+	    if(!gameObject->Status()) {
+		NumOfSats--;
+		std::cout << NumOfSats << std::endl;
+	    }
+	}
 	if(gameObject->Status()) {
 	    gameObject->Move();
 	}
@@ -140,7 +147,6 @@ void GameLogic::drawSplashScreen()
 
 void GameLogic::spawnSatellite()
 {
-
     int randomSpawnFactor = rand() % 10000;
     if(randomSpawnFactor == 1 && _satelliteSpawn == false) {
 	for(int i = 1; i <= 3; i++) {
@@ -157,14 +163,11 @@ void GameLogic::spawnSatellite()
 void GameLogic::SpawnBullets()
 {
     if(BulletSpawnFactor == 1000) {
-	int i = 0;
 	for(auto& gameObject : _ShootingGameObjects) {
 
 	    if(gameObject->GetObject() == Objects::Satellites && _satelliteSpawn == true) {
 		if(gameObject->Status()) {
 		    _gameObjects.push_back(gameObject->Shoot());
-		} else {
-		    i++;
 		}
 	    }
 	    if(gameObject->GetObject() == Objects::Enemy) {
@@ -172,13 +175,19 @@ void GameLogic::SpawnBullets()
 		    _gameObjects.push_back(gameObject->Shoot());
 		}
 	    }
-	    if(i == 3) {
-		_Upgrade = true;
-	    }
 	}
-
 	BulletSpawnFactor = 0;
     }
-
     BulletSpawnFactor++;
+}
+
+void GameLogic::CheckForUpgrade()
+{
+    if(NumOfSats == 0) {
+	_player->WeaponUpgrade();
+	NumOfSats--;
+    } else if((_satelliteSpawn == true) && (_player->CheckUpgrade() == false) && (NumOfSats == -1)) {
+	_satelliteSpawn = false;
+	NumOfSats = 3;
+    }
 }

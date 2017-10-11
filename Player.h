@@ -25,6 +25,7 @@ public:
     virtual float GetCollisionRadius() override;
     bool isGameOver();
     void WeaponUpgrade();
+	bool CheckUpgrade();
 
 private:
     void Respawn();
@@ -37,6 +38,7 @@ private:
     float _CollisionRadius = 64;
     int _lives;
 	int _bullets;
-};
+	bool _upgrade;
+	};
 
 #endif

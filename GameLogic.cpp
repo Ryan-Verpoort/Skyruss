@@ -5,12 +5,12 @@ GameLogic::GameLogic()
     : _presentation()
     , _isRunning(true)
     , _gameState(State::Splash)
-    , _satelliteSpawn(false)
-    , _AsteroidSpawn(false)
+    , NASASpawn(false)
+    , DestroyerSpawn(false)
 {
     srand(time(0));
-    _player = make_shared<Player>(_screen);
-    _gameObjects.push_back(_player);
+    PlayerShip = make_shared<Player>(_screen);
+    _gameObjects.push_back(PlayerShip);
     for(int i = 1; i <= Lives; i++) {
 	_Lives = make_shared<PlayerLives>(_screen, i);
 	_gameObjects.push_back(_Lives);
@@ -43,7 +43,7 @@ void GameLogic::run()
 	    _collisionHandler.CheckForCollisions(_gameObjects);
 	    time_since_last_update -= time_per_frame;
 
-	    if(_player->isGameOver()) {
+	    if(PlayerShip->isGameOver()) {
 		_isRunning = false;
 		_presentation.displayGameOverScreen();
 	    }
@@ -60,20 +60,20 @@ void GameLogic::updatePlayerPosition()
 {
 
     if(_presentation._isSpacePressed && counter == 0) {
-	if(_player->CheckUpgrade()) {
-	    _gameObjects.push_back(_player->Shoot());
-	    _gameObjects.push_back(_player->Shoot());
+	if(PlayerShip->CheckUpgrade()) {
+	    _gameObjects.push_back(PlayerShip->Shoot());
+	    _gameObjects.push_back(PlayerShip->Shoot());
 	} else {
-	    _gameObjects.push_back(_player->Shoot());
+	    _gameObjects.push_back(PlayerShip->Shoot());
 	}
 	counter++;
     }
     if(_presentation._isLeftPressed)
-	_player->setDirection(PlayerDirection::Clockwise);
+	PlayerShip->setDirection(PlayerDirection::Clockwise);
     else if(_presentation._isRightPressed)
-	_player->setDirection(PlayerDirection::Anticlockwise);
+	PlayerShip->setDirection(PlayerDirection::Anticlockwise);
     else
-	_player->setDirection(PlayerDirection::Hold);
+	PlayerShip->setDirection(PlayerDirection::Hold);
     if(!_presentation._isSpacePressed && counter > 0)
 	counter = 0;
 }
@@ -83,9 +83,9 @@ void GameLogic::renderObjects()
 
     _presentation.renderWindow(_gameObjects);
 
-    _gameObjects.erase(remove_if(_gameObjects.begin(), _gameObjects.end(), [](shared_ptr<MovingObjects>& me) {
-	                   return (!me->Status());
-	               }), _gameObjects.end());
+    _gameObjects.erase(remove_if(_gameObjects.begin(), _gameObjects.end(),
+                           [](shared_ptr<MovingObjects>& ObjectsInGame) { return (!ObjectsInGame->Status()); }),
+        _gameObjects.end());
 }
 
 void GameLogic::updateEntities()
@@ -102,10 +102,10 @@ void GameLogic::updateEntities()
 	    gameObject->Move();
 	}
 	if(gameObject->Respawns()) {
-	    _enemy = make_shared<Enemy>(_screen);
-	    _gameObjects.push_back(_enemy);
-	    _ShootingGameObjects.push_back(_enemy);
-	    _gameObjects.push_back(_enemy->Shoot());
+	    Alien = make_shared<Enemy>(_screen);
+	    _gameObjects.push_back(Alien);
+	    _ShootingGameObjects.push_back(Alien);
+	    _gameObjects.push_back(Alien->Shoot());
 	}
     }
 }
@@ -113,9 +113,9 @@ void GameLogic::updateEntities()
 void GameLogic::spawnEnemy()
 {
     if(spawnFactor == 3000 && Enemies < 10) {
-	_enemy = make_shared<Enemy>(_screen);
-	_gameObjects.push_back(_enemy);
-	_gameObjects.push_back(_enemy->Shoot());
+	Alien = make_shared<Enemy>(_screen);
+	_gameObjects.push_back(Alien);
+	_gameObjects.push_back(Alien->Shoot());
 
 	Enemies++;
 	spawnFactor = 0;
@@ -126,16 +126,16 @@ void GameLogic::spawnEnemy()
 void GameLogic::SpawnAsteroid()
 {
     int randomSpawnFactor = rand() % 10000;
-    if(randomSpawnFactor == 10 && _AsteroidSpawn == false) {
-	_Asteroid = make_shared<Asteroid>(_screen);
-	_Asteroid->PlayersPos(_player);
-	_gameObjects.push_back(_Asteroid);
-	_AsteroidSpawn = true;
+    if(randomSpawnFactor == 10 && DestroyerSpawn == false) {
+	Destroyer = make_shared<Asteroid>(_screen);
+	Destroyer->PlayersPos(PlayerShip);
+	_gameObjects.push_back(Destroyer);
+	DestroyerSpawn = true;
     }
 
-    if(_AsteroidSpawn == true) {
-	if(!_Asteroid->Status()) {
-	    _AsteroidSpawn = false;
+    if(DestroyerSpawn == true) {
+	if(!Destroyer->Status()) {
+	    DestroyerSpawn = false;
 	}
     }
 }
@@ -148,15 +148,15 @@ void GameLogic::drawSplashScreen()
 void GameLogic::spawnSatellite()
 {
     int randomSpawnFactor = rand() % 10000;
-    if(randomSpawnFactor == 1 && _satelliteSpawn == false) {
+    if(randomSpawnFactor == 1 && NASASpawn == false) {
 	for(int i = 1; i <= 3; i++) {
-	    _satellite = make_shared<Satellite>(_screen, i);
-	    _satellite->PlayersPos(_player);
-	    _gameObjects.push_back(_satellite);
-	    _ShootingGameObjects.push_back(_satellite);
-	    _gameObjects.push_back(_satellite->Shoot());
+	    NASA = make_shared<Satellite>(_screen, i);
+	    NASA->PlayersPos(PlayerShip);
+	    _gameObjects.push_back(NASA);
+	    _ShootingGameObjects.push_back(NASA);
+	    _gameObjects.push_back(NASA->Shoot());
 	}
-	_satelliteSpawn = true;
+	NASASpawn = true;
     }
 }
 
@@ -165,7 +165,7 @@ void GameLogic::SpawnBullets()
     if(BulletSpawnFactor == 1000) {
 	for(auto& gameObject : _ShootingGameObjects) {
 
-	    if(gameObject->GetObject() == Objects::Satellites && _satelliteSpawn == true) {
+	    if(gameObject->GetObject() == Objects::Satellites && NASASpawn == true) {
 		if(gameObject->Status()) {
 		    _gameObjects.push_back(gameObject->Shoot());
 		}
@@ -184,10 +184,10 @@ void GameLogic::SpawnBullets()
 void GameLogic::CheckForUpgrade()
 {
     if(NumOfSats == 0) {
-	_player->WeaponUpgrade();
+	PlayerShip->WeaponUpgrade();
 	NumOfSats--;
-    } else if((_satelliteSpawn == true) && (_player->CheckUpgrade() == false) && (NumOfSats == -1)) {
-	_satelliteSpawn = false;
+    } else if((NASASpawn == true) && (PlayerShip->CheckUpgrade() == false) && (NumOfSats == -1)) {
+	NASASpawn = false;
 	NumOfSats = 3;
     }
 }

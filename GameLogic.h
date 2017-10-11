@@ -34,7 +34,7 @@ public:
     void collisions();
     void SpawnAsteroid();
     void SpawnBullets();
-	void CheckForUpgrade();
+    void CheckForUpgrade();
 
     int counter = 0;
 
@@ -42,21 +42,21 @@ private:
     shared_ptr<PlayerBullet> _playerBullet;
     GamePresentation _presentation;
     Screen _screen{ 1000, 800 };
-    shared_ptr<Player> _player;
+    shared_ptr<Player> PlayerShip;
     shared_ptr<PlayerLives> _Lives;
-    shared_ptr<Enemy> _enemy;
-    shared_ptr<Satellite> _satellite;
-    shared_ptr<Asteroid> _Asteroid;
+    shared_ptr<Enemy> Alien;
+    shared_ptr<Satellite> NASA;
+    shared_ptr<Asteroid> Destroyer;
     shared_ptr<EnemyBullet> _EnemyBullet;
     vector<shared_ptr<MovingObjects> > _gameObjects;
     vector<shared_ptr<ShootingObjects> > _ShootingGameObjects;
     bool _isRunning;
     State _gameState;
     bool _isSplashScreen;
-    bool _satelliteSpawn;
-    bool _AsteroidSpawn;
+    bool NASASpawn;
+    bool DestroyerSpawn;
     int Enemies = 0;
-	int NumOfSats = 3;
+    int NumOfSats = 3;
     int Lives = 3;
     int spawnFactor = 3000;
     int BulletSpawnFactor = 0;

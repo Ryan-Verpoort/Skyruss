@@ -212,11 +212,16 @@ void GameLogic::Restart()
 
     _gameObjects.clear();
     _ShootingGameObjects.clear();
-
+    Lives = 4;
     PlayerShip = make_shared<Player>(_screen, Lives);
     _gameObjects.push_back(PlayerShip);
-    for(int i = 1; i <= Lives; i++) {
+    for(int i = 1; i <= Lives - 1; i++) {
 	_Lives = make_shared<PlayerLives>(_screen, i);
 	_gameObjects.push_back(_Lives);
     }
+    PlayerShip->Kill();
+    PlayerShip->setDirection(PlayerDirection::Hold);
+    EnemiesKilled = 0;
+    Enemies = 0;
+    Run();
 }

@@ -39,7 +39,7 @@ void GameOverScreen::Display(sf::RenderWindow& renderWindow)
 		renderWindow.close();
 		return;
 	    }
-	    if(event.key.code == sf::Keyboard::Return) {
+	    if(event.type == sf::Event::KeyReleased && event.key.code == sf::Keyboard::Return) {
 		return;
 	    }
 	}

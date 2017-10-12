@@ -3,8 +3,9 @@
 Satellite::Satellite(Screen screen, int NumberOfSats)
     : _screen(screen)
     , _enemyBullet(_satellitePos, screen)
+    , _IsAlive(true)
 {
-    _aliveStatus = true;
+
     int startingPosition = 0;
     if(NumberOfSats == 1) {
 	startingPosition = 0;
@@ -30,21 +31,26 @@ Objects Satellite::GetObject()
 
 void Satellite::Move()
 {
-    _satellitePos.setAngle(_satellitePos.GetAngle() + 0.00025);
-    int newXPos = _satellitePos.GetInitialX() + _satellitePos.GetRadius() * cos(_satellitePos.GetAngle());
-    int newYPos = _satellitePos.GetInitialY() + _satellitePos.GetRadius() * sin(_satellitePos.GetAngle());
-    _satellitePos.SetCurrentX(newXPos);
-    _satellitePos.SetCurrentY(newYPos);
+    _satellitePos.setAngle(_satellitePos.GetAngle() + _SatelliteSpeed);
+
+    // Set New Co-Ordinates for Satellite Move
+    _satellitePos.SetCurrentX(_satellitePos.GetInitialX() + _satellitePos.GetRadius() * cos(_satellitePos.GetAngle()));
+    _satellitePos.SetCurrentY(_satellitePos.GetInitialY() + _satellitePos.GetRadius() * sin(_satellitePos.GetAngle()));
 }
 
 shared_ptr<MovingObjects> Satellite::Shoot()
 {
-    return std::make_shared<EnemyBullet>(_satellitePos, _screen);
+    // Set Satellite Bullets Position to be same as Satellite
+    _SatelliteBullet = _satellitePos;
+
+    // Set Angle to Players Angle for Bullet position
+    _SatelliteBullet.setAngle(_PlayerAngle);
+    return std::make_shared<EnemyBullet>(_SatelliteBullet, _screen);
 }
 
 bool Satellite::Status()
 {
-    return _aliveStatus;
+    return _IsAlive;
 }
 
 bool Satellite::Respawns()
@@ -54,7 +60,7 @@ bool Satellite::Respawns()
 
 void Satellite::Kill()
 {
-    _aliveStatus = false;
+    _IsAlive = false;
 }
 
 float Satellite::GetCollisionRadius()
@@ -64,10 +70,11 @@ float Satellite::GetCollisionRadius()
 
 void Satellite::PlayersPos(shared_ptr<Player> _player)
 {
-    //_PlayerAngle = _player->GetPosition().GetAngle();
+    // Get Players Current Co-Ordiantes
     _PlayerXPos = _player->GetPosition().GetCurrentX();
     _PlayerYPos = _player->GetPosition().GetCurrentY();
 
+    // Check Which Quadrant Player is in and Set Satellite Position Accordingly
     if(_PlayerXPos >= _screen.getScreenCentreX()) {
 	_PlayerXPos = _PlayerXPos - 100;
     } else {
@@ -79,8 +86,12 @@ void Satellite::PlayersPos(shared_ptr<Player> _player)
 	_PlayerYPos = _PlayerYPos + 100;
     }
 
+    // Set Satellites position
     _satellitePos.SetInitialX(_PlayerXPos);
     _satellitePos.SetInitialY(_PlayerYPos);
     _satellitePos.SetCurrentX(_PlayerXPos);
     _satellitePos.SetCurrentY(_PlayerYPos);
+
+    // Get Players Angle For Bullet position
+    _PlayerAngle = _player->GetPosition().GetAngle();
 }

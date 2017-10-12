@@ -3,16 +3,18 @@
 
 #include "Asteroid.h"
 #include "CollisionHandler.h"
-#include "GamePresentation.h"
 #include "Enemy.h"
 #include "EnemyBullet.h"
+#include "GamePresentation.h"
 #include "Player.h"
 #include "PlayerBullet.h"
 #include "PlayerLives.h"
 #include "Satellite.h"
 #include "State.h"
 #include "Timer.h"
+
 #include <vector>
+using std::vector;
 #include <memory>
 using std::shared_ptr;
 using std::unique_ptr;
@@ -23,20 +25,20 @@ class GameLogic
 {
 public:
     GameLogic();
-    void run();
+    void Run();
     void renderObjects();
-    void spawnEnemy();
-    void updatePlayerPosition();
-    void updateEntities();
-    void inputCommands();
+    void EnemySpawn();
+    void PlayerUpdate();
+    void ObjectUpdate();
+    void UserInputs();
     void drawSplashScreen();
-    void spawnSatellite();
-    void collisions();
-    void SpawnAsteroid();
-    void SpawnBullets();
+    void drawControlScreen();
+    void SatelliteSpawn();
+    void CheckCollisions();
+    void AsteroidSpawn();
+    void BulletsSpawn();
     void CheckForUpgrade();
-
-    int counter = 0;
+	void Restart();
 
 private:
     shared_ptr<PlayerBullet> _playerBullet;
@@ -50,12 +52,14 @@ private:
     shared_ptr<EnemyBullet> _EnemyBullet;
     vector<shared_ptr<MovingObjects> > _gameObjects;
     vector<shared_ptr<ShootingObjects> > _ShootingGameObjects;
-    bool _isRunning;
+    bool _IsPlaying;
     State _gameState;
     bool _isSplashScreen;
     bool NASASpawn;
     bool DestroyerSpawn;
+    int counter = 0;
     int Enemies = 0;
+	int EnemiesKilled = 0;
     int NumOfSats = 3;
     int Lives = 3;
     int spawnFactor = 3000;

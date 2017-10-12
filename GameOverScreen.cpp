@@ -16,15 +16,16 @@ void GameOverScreen::Display(sf::RenderWindow& renderWindow)
     title.setCharacterSize(58);
     title.setPosition(renderWindow.getSize().x / 3, renderWindow.getSize().y / 4);
     title.setStyle(sf::Text::Bold);
-    title.setColor(sf::Color::Yellow);
+    title.setColor(sf::Color::Black);
 
-    std::string gameOverText = "Press Enter key to play again";
+    std::string gameOverText = "Press Enter to play again"
+                               "\n \n  or \n \n or Escape to Exit";
 
     sf::Text FinalText(gameOverText, _Font);
     FinalText.setCharacterSize(25);
     FinalText.setPosition(renderWindow.getSize().x / 3, renderWindow.getSize().y / 2 - renderWindow.getSize().y / 10);
     FinalText.setStyle(sf::Text::Bold);
-    FinalText.setColor(sf::Color::Yellow);
+    FinalText.setColor(sf::Color::White);
 
     renderWindow.draw(Final);
     renderWindow.draw(FinalText);
@@ -34,8 +35,11 @@ void GameOverScreen::Display(sf::RenderWindow& renderWindow)
     sf::Event event;
     while(true) {
 	while(renderWindow.pollEvent(event)) {
-	    if(event.key.code == sf::Keyboard::Return) {
+	    if(event.key.code == sf::Keyboard::Escape) {
 		renderWindow.close();
+		return;
+	    }
+	    if(event.key.code == sf::Keyboard::Return) {
 		return;
 	    }
 	}

@@ -22,9 +22,9 @@ private:
     ObjectsPosition _enemyPos;
     Screen _screen;
     EnemyBullet _enemyBullet;
-    float _factor = 0.005;
-    bool _aliveStatus;
-    bool _reSpawn;
+    float _EnemySpeed = 0.005;
+    bool _IsAlive;
+	bool _ObjectRespawns;
     float _CollisionRadius = 32;
 };
 

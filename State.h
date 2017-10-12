@@ -3,7 +3,7 @@
 
 enum class State
 {
-    //reminder to format these enum classes properly (maybe make them capital letters, this will improve the readability 
+    //Games State  
     Splash = 0,
     Running,
     GameOver,

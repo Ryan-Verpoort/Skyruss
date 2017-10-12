@@ -2,16 +2,16 @@
 
 Resources::Resources(Objects ObjectType, string resourcePath)
 {
-    _FilePath = resourcePath;
+    _ResourcePath = resourcePath;
     _ObjectType = ObjectType;
 }
 
-Objects Resources::getEntityID()
+Objects Resources::GetGameObjectType()
 {
     return _ObjectType;
 }
 
-string Resources::getResourcePath()
+string Resources::GetObjectResourcePath()
 {
-    return _FilePath;
+    return _ResourcePath;
 }

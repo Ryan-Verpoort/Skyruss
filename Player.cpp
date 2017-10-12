@@ -1,14 +1,15 @@
 #include "Player.h"
 #include <iostream>
 
-Player::Player(Screen screen)
+Player::Player(Screen screen, int NumberOfLives)
     : _screen(screen)
+    , _NumberOfLives(NumberOfLives)
     , _PlayersBullet(_PlayerPosition, _screen)
+    , _IsAlive(true)
     , _upgrade(false)
 {
-    _lives = 3;
-    _bullets = 0;
-    _aliveStatus = true;
+
+    // Set Direction to Hold position
     _Direction = PlayerDirection::Hold;
     _PlayerPosition.setAngle(0);
     _PlayerPosition.SetCurrentX(screen.getScreenCentreX());
@@ -30,34 +31,44 @@ Objects Player::GetObject()
 
 void Player::Move()
 {
-
+    // Check Direction And Move Accordingly
     if(GetDirection() == PlayerDirection::Clockwise)
-	_PlayerPosition.setAngle(_PlayerPosition.GetAngle() - 0.25);
+	_PlayerPosition.setAngle(_PlayerPosition.GetAngle() - _PlayerSpeed);
     else if(GetDirection() == PlayerDirection::Anticlockwise)
-	_PlayerPosition.setAngle(_PlayerPosition.GetAngle() + 0.25);
+	_PlayerPosition.setAngle(_PlayerPosition.GetAngle() + _PlayerSpeed);
 
-    auto radianAngle = (_PlayerPosition.GetAngle() * PI / 180) * 0.5;
-    int newXPos = _PlayerPosition.GetInitialX() + _PlayerPosition.GetRadius() * cos(radianAngle - ANGLE_OFFSET);
-    int newYPos = _PlayerPosition.GetInitialY() - _PlayerPosition.GetRadius() * sin(radianAngle - ANGLE_OFFSET);
-    _PlayerPosition.SetCurrentX(newXPos);
-    _PlayerPosition.SetCurrentY(newYPos);
+    // Convert Degrees to Radians
+    auto Radians = (_PlayerPosition.GetAngle() * PI / 180) * 0.5;
+
+    // Move Player X related to Cosine and Y related to Sine From Trig rules
+    _PlayerPosition.SetCurrentX(
+        _PlayerPosition.GetInitialX() + _PlayerPosition.GetRadius() * cos(Radians - ANGLE_OFFSET));
+
+    _PlayerPosition.SetCurrentY(
+        _PlayerPosition.GetInitialY() - _PlayerPosition.GetRadius() * sin(Radians - ANGLE_OFFSET));
 }
 shared_ptr<MovingObjects> Player::Shoot()
 {
+    // Create New Objects Position Which is the same as Players Position So Players position Is not effected
     ObjectsPosition Bullets = _PlayerPosition;
+
+    // Check Value of Bullets Allows for weapon upgrade bullets have a distance between them
     if(_bullets == 2) {
+	// Move the bullet back behind Enemy
 	Bullets.setRadius(Bullets.GetRadius() - 50);
 	_bullets = 0;
     } else {
 	Bullets.setRadius(Bullets.GetRadius());
     }
     _bullets++;
+
+    // Pass the Position to Players bullets class
     return std::make_shared<PlayerBullet>(Bullets, _screen);
 }
 
 bool Player::Status()
 {
-    return _aliveStatus;
+    return _IsAlive;
 }
 
 PlayerDirection Player::GetDirection()
@@ -77,8 +88,10 @@ bool Player::Respawns()
 
 void Player::Kill()
 {
-    _aliveStatus = false;
-    Respawn();
+    _IsAlive = false;
+
+    // Reset Players position
+    ResetPlayer();
 }
 
 float Player::GetCollisionRadius()
@@ -86,10 +99,15 @@ float Player::GetCollisionRadius()
     return _CollisionRadius;
 }
 
-void Player::Respawn()
+void Player::ResetPlayer()
 {
-    _lives--;
-    _aliveStatus = true;
+    // Decrease Lives remaining
+    _NumberOfLives--;
+
+    // Reset Players Status to true
+    _IsAlive = true;
+
+    // Reset Starting Position and direction to hold position
     _Direction = PlayerDirection::Hold;
     _PlayerPosition.setAngle(0);
     _PlayerPosition.SetCurrentX(_screen.getScreenCentreX());
@@ -97,12 +115,15 @@ void Player::Respawn()
     _PlayerPosition.setRadius(_screen.getObjectRadius());
     _PlayerPosition.SetInitialX(_screen.getScreenCentreX());
     _PlayerPosition.SetInitialY(_screen.getScreenCentreY());
+
+    // Change upgrade to false since player died losses Upgrade
     _upgrade = false;
 }
 
-bool Player::isGameOver()
+bool Player::GameOver()
 {
-    if(_lives < 0) {
+    // If Player has no more Lives the Game is over
+    if(_NumberOfLives < 0) {
 	return true;
     } else {
 	return false;
@@ -111,6 +132,7 @@ bool Player::isGameOver()
 
 void Player::WeaponUpgrade()
 {
+    // Set upgrade to true
     _upgrade = true;
 }
 

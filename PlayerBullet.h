@@ -19,9 +19,8 @@ public:
 
 private:
     ObjectsPosition _playerBulletPos;
-    bool _aliveStatus;
+    bool _IsAlive;
     Screen _screen;
-    bool _reSpawn;
     int newXPos;
     int newYPos;
 

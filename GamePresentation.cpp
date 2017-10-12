@@ -74,6 +74,8 @@ void GamePresentation::handlePlayerInput(sf::Keyboard::Key key, bool isPressed)
 	_isRightPressed = isPressed;
     else if((key == sf::Keyboard::Left))
 	_isLeftPressed = isPressed;
+    if((key == sf::Keyboard::Escape))
+	_window.close();
     if(key == sf::Keyboard::Space && isPressed == true)
 	if(counter == 0) {
 	    _isSpacePressed = true;
@@ -93,11 +95,11 @@ void GamePresentation::loadTextures()
 
     for(auto entityTexture : _ObjectsTextures) {
 	sf::Texture texture;
-	texture.loadFromFile(entityTexture.getResourcePath());
+	texture.loadFromFile(entityTexture.GetObjectResourcePath());
 	texture.setSmooth(true);
 
 	textureIdentifier currentTex;
-	currentTex.GameObject = entityTexture.getEntityID();
+	currentTex.GameObject = entityTexture.GetGameObjectType();
 	currentTex.texture = texture;
 	_textureslList.push_back(currentTex);
     }

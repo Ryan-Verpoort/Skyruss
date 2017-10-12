@@ -25,10 +25,11 @@ public:
 
 private:
     ObjectsPosition _satellitePos;
+	ObjectsPosition _SatelliteBullet;
     Screen _screen;
     EnemyBullet _enemyBullet;
-    float _factor = 0.005;
-    bool _aliveStatus;
+    float _SatelliteSpeed = 0.00025;
+    bool _IsAlive;
     float _CollisionRadius = 64;
     float _PlayerAngle;
     float _PlayerXPos;

@@ -24,10 +24,10 @@ public:
 
 private:
     ObjectsPosition _enemyBulletPos;
-    bool _aliveStatus;
+    bool _IsAlive;
     Screen _screen;
     float _DistToPlayer;
-    float _factor = 0.00001;
+    float _EnemyBulletSpeed = 0.00001;
     float _CollisionRadius = 32;
 };
 

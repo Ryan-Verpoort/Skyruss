@@ -2,7 +2,7 @@
 
 EnemyBullet::EnemyBullet(ObjectsPosition enemyPos, Screen screen)
     : _enemyBulletPos(enemyPos)
-    , _aliveStatus(true)
+    , _IsAlive(true)
     , _screen(screen)
 {
     _enemyBulletPos.setAngle(enemyPos.GetAngle());
@@ -25,22 +25,25 @@ Objects EnemyBullet::GetObject()
 
 bool EnemyBullet::Status()
 {
-    return _aliveStatus;
+    return _IsAlive;
 }
 
 void EnemyBullet::Move()
 {
-
+    // Convert Degrees To Radians
     auto rad = (_enemyBulletPos.GetAngle() * PI / 180);
-    _enemyBulletPos.SetCurrentX(_enemyBulletPos.GetInitialX() + _factor * _screen.getObjectRadius() * cos(rad));
-    _enemyBulletPos.SetCurrentY(_enemyBulletPos.GetInitialY() + _factor * _screen.getObjectRadius() * sin(rad));
-    _factor += 0.001;
 
-    if(_enemyBulletPos.GetCurrentX() >= _screen.getScreenWidth() || _enemyBulletPos.GetCurrentY() <= 0) {
-	Kill();
-    }
+    // Move Enenmy Bullet Using Trig as with Enemy Class
+    _enemyBulletPos.SetCurrentX(
+        _enemyBulletPos.GetInitialX() + _EnemyBulletSpeed * _screen.getObjectRadius() * cos(rad));
+    _enemyBulletPos.SetCurrentY(
+        _enemyBulletPos.GetInitialY() + _EnemyBulletSpeed * _screen.getObjectRadius() * sin(rad));
+    _EnemyBulletSpeed += 0.001;
 
-    if(_enemyBulletPos.GetCurrentX() <= 0 || _enemyBulletPos.GetCurrentY() >= _screen.getScreenHeight()) {
+    // Check Enemy Bullet Is still on Screen otherwise Kill object
+    if((_enemyBulletPos.GetCurrentX() >= _screen.getScreenWidth()) ||
+        (_enemyBulletPos.GetCurrentY() >= _screen.getScreenHeight()) || (_enemyBulletPos.GetCurrentX() <= 0) ||
+        (_enemyBulletPos.GetCurrentY() <= 0)) {
 	Kill();
     }
 }
@@ -52,7 +55,7 @@ bool EnemyBullet::Respawns()
 
 void EnemyBullet::Kill()
 {
-    _aliveStatus = false;
+    _IsAlive = false;
 }
 
 float EnemyBullet::GetCollisionRadius()

@@ -10,21 +10,26 @@ Timer::Timer()
 
 void Timer::Start()
 {
+	//Get Current Time of Start
     _StartTime = getProcessTime();
 }
 
-double Timer::Stop()
+void Timer::Stop()
 {
-    return getProcessTime() - _StartTime;
+	//Get Current Time of Stop
+    _FinalTime =  getProcessTime();
 }
 
-double Timer::getDuration()
+float Timer::getDuration()
 {
-    return getProcessTime();
+	//Finial - initial gets Duruation
+	Stop();
+    return _FinalTime - _StartTime;
 }
 
-double Timer::getProcessTime()
+float Timer::getProcessTime()
 {
+	//Get time from the clock function
     clock_t time = clock();
     return static_cast<double>(time) / CLOCKS_PER_SEC;
 }

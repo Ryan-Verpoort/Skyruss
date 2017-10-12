@@ -10,11 +10,11 @@ class Resources
 {
 public:
     Resources(Objects ObjectType, string FilePath);
-    Objects getEntityID();
-    string getResourcePath();
+    Objects GetGameObjectType();
+    string GetObjectResourcePath();
 
 private:
-    string _FilePath;
+    string _ResourcePath;
     Objects _ObjectType;
 };
 

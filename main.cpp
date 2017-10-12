@@ -6,7 +6,7 @@ int main()
 
     while(true) {
 	GameLogic logic{};
-	logic.run();
+	logic.Run();
     }
 
     return 0;

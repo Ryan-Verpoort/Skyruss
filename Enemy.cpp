@@ -4,10 +4,12 @@ Enemy::Enemy(Screen screen)
     : _screen(screen)
     , _enemyBullet(_enemyPos, screen)
 {
-    _aliveStatus = true;
-    _reSpawn = false;
-    int randomStartAngle = rand() % 360;
-    _enemyPos.setAngle(randomStartAngle);
+    _IsAlive = true;
+    _ObjectRespawns = false;
+
+    // Generate Random Start Angle for Movement
+    int RandomAngle = rand() % 361;
+    _enemyPos.setAngle(RandomAngle);
     _enemyPos.setRadius(screen.getObjectRadius());
     _enemyPos.SetInitialX(screen.getScreenCentreX());
     _enemyPos.SetInitialY(screen.getScreenCentreY());
@@ -27,44 +29,41 @@ Objects Enemy::GetObject()
 
 void Enemy::Move()
 {
-    auto radianAngle = (_enemyPos.GetAngle() * PI / 180);
-    _enemyPos.SetCurrentX(_enemyPos.GetInitialX() + _factor * _enemyPos.GetRadius() * cos(radianAngle));
-    _enemyPos.SetCurrentY(_enemyPos.GetInitialY() + _factor * _enemyPos.GetRadius() * sin(radianAngle));
-    _factor += 0.0005;
+    // Convert Angle from Degrees to radians
+    auto Radians = (_enemyPos.GetAngle() * PI / 180);
 
-    int xLimit = abs(_enemyPos.GetCurrentX());
-    int yLimit = abs(_enemyPos.GetCurrentY());
-    if(xLimit > _enemyPos.GetInitialX() + _enemyPos.GetRadius() ||
-        yLimit > _enemyPos.GetInitialY() + _enemyPos.GetRadius()) {
-	_aliveStatus = false;
-	_reSpawn = true;
-    }
+    // Move Enemy X related to Cosine and Y related to Sine From Trig rules
+    _enemyPos.SetCurrentX(_enemyPos.GetInitialX() + _EnemySpeed * _enemyPos.GetRadius() * cos(Radians));
+    _enemyPos.SetCurrentY(_enemyPos.GetInitialY() + _EnemySpeed * _enemyPos.GetRadius() * sin(Radians));
+    _EnemySpeed += 0.0005;
 
-    if(xLimit < _enemyPos.GetInitialX() - _enemyPos.GetRadius() ||
-        yLimit < _enemyPos.GetInitialY() - _enemyPos.GetRadius()) {
-	_aliveStatus = false;
-	_reSpawn = true;
+    // Check Objects Position if off Screen Delete
+    if((_enemyPos.GetCurrentX() > _screen.getScreenWidth()) || (_enemyPos.GetCurrentY() > _screen.getScreenHeight()) ||
+        (_enemyPos.GetCurrentX() < 0) || (_enemyPos.GetCurrentY() < 0)) {
+	_IsAlive = false;
+	_ObjectRespawns = true;
     }
 }
 
 bool Enemy::Status()
 {
-    return _aliveStatus;
+    return _IsAlive;
 }
 
 shared_ptr<MovingObjects> Enemy::Shoot()
 {
+    // Give Enemy Position to Enemy Bullet Class
     return std::make_shared<EnemyBullet>(_enemyPos, _screen);
 }
 
 bool Enemy::Respawns()
 {
-    return _reSpawn;
+    return _ObjectRespawns;
 }
 
 void Enemy::Kill()
 {
-    _aliveStatus = false;
+    _IsAlive = false;
 }
 
 float Enemy::GetCollisionRadius()

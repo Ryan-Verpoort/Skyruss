@@ -4,8 +4,10 @@ Screen::Screen(float Width, float Height)
     : _ScreenWidth(Width)
     , _ScreenHeight(Height)
 {
+    // Set Screen Centre
     _ScreenCentreX = _ScreenWidth / 2.0f;
     _ScreenCentreY = _ScreenHeight / 2.0f;
+    // Set Screen Radius _screen height /2 x 90%  Allow for object to be on screen
     _ObjectRadius = _ScreenHeight * 0.45;
 }
 

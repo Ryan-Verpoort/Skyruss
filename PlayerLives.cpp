@@ -2,8 +2,9 @@
 
 PlayerLives::PlayerLives(Screen screen, int NumberOfLives)
     : _screen(screen)
+    , _IsAlive(true)
 {
-    _aliveStatus = true;
+    // Set Lives Positon to Top Left Corner and increment x position
     _LivesPos.SetCurrentX(20 + 50 * (NumberOfLives - 1));
     _LivesPos.SetCurrentY(20);
 }
@@ -20,11 +21,12 @@ Objects PlayerLives::GetObject()
 
 void PlayerLives::Move()
 {
+    // Lives do not move but Move function needed
 }
 
 bool PlayerLives::Status()
 {
-    return _aliveStatus;
+    return _IsAlive;
 }
 
 bool PlayerLives::Respawns()
@@ -34,10 +36,11 @@ bool PlayerLives::Respawns()
 
 void PlayerLives::Kill()
 {
-    _aliveStatus = false;
+    _IsAlive = false;
 }
 
 float PlayerLives::GetCollisionRadius()
 {
+    // Does not Collide But again Needed
     return _CollisionRadius;
 }

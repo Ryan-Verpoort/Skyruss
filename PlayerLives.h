@@ -19,7 +19,7 @@ public:
 private:
     ObjectsPosition _LivesPos;
     Screen _screen;
-    bool _aliveStatus;
+    bool _IsAlive;
     float _CollisionRadius = 32;
 };
 #endif

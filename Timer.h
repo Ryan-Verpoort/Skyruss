@@ -3,23 +3,18 @@
 
 #include <ctime>
 
-class Timer 
+class Timer
 {
-	public:
-		
-		Timer();
-		void Start();
-		double Stop();
-		double getProcessTime();
-		double getDuration();
-	
-	private:
-			
-		double _StartTime;
-		double _FinalTime;
+public:
+    Timer();
+    void Start();
+    void Stop();
+    float getProcessTime();
+    float getDuration();
 
-	};
-  
-
+private:
+    float _StartTime;
+    float _FinalTime;
+};
 
 #endif

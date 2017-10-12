@@ -30,7 +30,7 @@ Screen _screen(1000, 800);
 TEST_CASE("Moves in Clockwise direction")
 {
     // Create player Object
-    Player playership(_screen);
+    Player playership(_screen, 3);
 
     // Check Player starts in correct position bootom of screen in the middle
     CHECK(playership.GetPosition().GetCurrentX() == _screen.getScreenCentreX());
@@ -46,14 +46,14 @@ TEST_CASE("Moves in Clockwise direction")
     CHECK_FALSE(playership.GetPosition().GetCurrentY() == (_screen.getScreenCentreY() + _screen.getObjectRadius()));
 
     // Check Player mover correct Direction
-    CHECK(playership.GetPosition().GetCurrentX() == 498.0f);
-    CHECK(playership.GetPosition().GetCurrentY() == 759.0f);
+    CHECK(playership.GetPosition().GetCurrentX() == 498.4292f);
+    CHECK(playership.GetPosition().GetCurrentY() == 759.99658f);
 }
 
 TEST_CASE("Moves in Anti Clockwise direction")
 {
     // Create player Object
-    Player playership(_screen);
+    Player playership(_screen, 3);
 
     // Check Player starts in correct position bootom of screen in the middle
     CHECK(playership.GetPosition().GetCurrentX() == _screen.getScreenCentreX());
@@ -69,8 +69,8 @@ TEST_CASE("Moves in Anti Clockwise direction")
     CHECK_FALSE(playership.GetPosition().GetCurrentY() == (_screen.getScreenCentreY() + _screen.getObjectRadius()));
 
     // Check Player mover correct Direction
-    CHECK(playership.GetPosition().GetCurrentX() == 501.0f);
-    CHECK(playership.GetPosition().GetCurrentY() == 759.0f);
+    CHECK(playership.GetPosition().GetCurrentX() == 501.57077f);
+    CHECK(playership.GetPosition().GetCurrentY() == 759.99658f);
 }
 
 TEST_CASE("Enemy ship spawn's at center")
@@ -107,8 +107,8 @@ TEST_CASE("EnemyShip moves away from centre")
     CHECK_FALSE(enemy.GetPosition().GetCurrentY() == _screen.getScreenCentreY());
 
     // Check Enemy moves on screen
-    CHECK(enemy.GetPosition().GetCurrentX() == 499.42111f);
-    CHECK(enemy.GetPosition().GetCurrentY() == 401.89349f);
+    CHECK(enemy.GetPosition().GetCurrentX() == 501.10721f);
+    CHECK(enemy.GetPosition().GetCurrentY() == 401.64148f);
 }
 
 TEST_CASE("Asteroid moves away from centre")
@@ -125,8 +125,8 @@ TEST_CASE("Asteroid moves away from centre")
     CHECK_FALSE(_screen.getScreenCentreY() == Destroyer.GetPosition().GetCurrentY());
 
     // Check Asteroid moves on screen
-    CHECK(Destroyer.GetPosition().GetCurrentX() == 499.19464f);
-    CHECK(Destroyer.GetPosition().GetCurrentY() == 399.40723f);
+    CHECK(Destroyer.GetPosition().GetCurrentX() == 499.21912f);
+    CHECK(Destroyer.GetPosition().GetCurrentY() == 399.37531f);
 }
 
 TEST_CASE("EnemyShip Dies If Off Screen")
@@ -167,7 +167,7 @@ TEST_CASE("Satellite spawn's in front of Player")
 {
     // Player Objects
     shared_ptr<Player> PlayerShip;
-    PlayerShip = make_shared<Player>(_screen);
+    PlayerShip = make_shared<Player>(_screen, 3);
 
     // Satellite Objects
     shared_ptr<Satellite> NASA1;
@@ -202,7 +202,7 @@ TEST_CASE("Satellite moves")
 {
     // Player Objects
     shared_ptr<Player> PlayerShip;
-    PlayerShip = make_shared<Player>(_screen);
+    PlayerShip = make_shared<Player>(_screen, 3);
 
     // Create Satellite Objects
     shared_ptr<Satellite> NASA1;
@@ -230,20 +230,20 @@ TEST_CASE("Satellite moves")
     NASA3->Move();
 
     // Check X Position
-    CHECK(NASA1->GetPosition().GetCurrentX() == 449.0f);
-    CHECK(NASA2->GetPosition().GetCurrentX() == 379.0f);
-    CHECK(NASA3->GetPosition().GetCurrentX() == 367.0f);
+    CHECK(NASA1->GetPosition().GetCurrentX() == 450.0f);
+    CHECK(NASA2->GetPosition().GetCurrentX() == 379.18127f);
+    CHECK(NASA3->GetPosition().GetCurrentX() == 367.32727f);
 
     // Check Y Position
-    CHECK(NASA1->GetPosition().GetCurrentY() == 660.0f);
-    CHECK(NASA2->GetPosition().GetCurrentY() == 705.0f);
-    CHECK(NASA3->GetPosition().GetCurrentY() == 622.0f);
+    CHECK(NASA1->GetPosition().GetCurrentY() == 660.01251f);
+    CHECK(NASA2->GetPosition().GetCurrentY() == 705.45966f);
+    CHECK(NASA3->GetPosition().GetCurrentY() == 622.15173f);
 }
 
 TEST_CASE("Player Bullet Spawn at Player Position")
 {
     // Create Player Objects
-    Player PlayerShip(_screen);
+    Player PlayerShip(_screen, 3);
     ObjectsPosition PlayersPos;
 
     // Move Player
@@ -263,12 +263,14 @@ TEST_CASE("Player Bullet Spawn at Player Position")
 TEST_CASE("Bullet Reaches Centre of Screen and is destroyed")
 {
     // Create Player Objects
-    Player PlayerShip(_screen);
+    Player PlayerShip(_screen, 3);
     ObjectsPosition PlayersPos;
 
     // Give Players Co-Ordinates to player bullet
     PlayersPos = PlayerShip.GetPosition();
     PlayerBullet _playerbullet(PlayersPos, _screen);
+
+    CHECK_FALSE(_playerbullet.GetPosition().GetCurrentY() == 404.68381f);
 
     // Check Bullet is Alive
     CHECK(_playerbullet.Status());
@@ -282,7 +284,7 @@ TEST_CASE("Bullet Reaches Centre of Screen and is destroyed")
     // Check Last co-ordinates
     CHECK(_playerbullet.GetPosition().GetCurrentX() == _screen.getScreenCentreX());
     // Y value depends on Players position and _bullets x position
-    CHECK(_playerbullet.GetPosition().GetCurrentY() == 414.0f);
+    CHECK(_playerbullet.GetPosition().GetCurrentY() == 404.68381f);
 }
 
 TEST_CASE("Enemy Bullet Spawns at enemy Spawning Co-ordinates")
@@ -339,43 +341,43 @@ TEST_CASE("Enemy Bullet Reaches Edge of Screen and is destroyed")
     CHECK_FALSE(_enemybullet.Status());
 
     // Check Y value less than screen edge
-    CHECK(_enemybullet.GetPosition().GetCurrentY() <= 0);
+    CHECK_FALSE(_enemybullet.GetPosition().GetCurrentX() > 0);
 }
 
 TEST_CASE("Player Loose Lifes")
 {
     // Create Player Object
-    Player Playership(_screen);
+    Player Playership(_screen, 3);
 
     // Check Player is Alive
     CHECK(Playership.Status());
 
     // Check if game is still running
-    CHECK_FALSE(Playership.isGameOver());
+    CHECK_FALSE(Playership.GameOver());
 
     // Player Life Lost
     Playership.Kill();
 
     // One Life Lost still playing
-    CHECK_FALSE(Playership.isGameOver());
+    CHECK_FALSE(Playership.GameOver());
 
     // Player Life Lost
     Playership.Kill();
 
     // Two Lifes Lost still playing
-    CHECK_FALSE(Playership.isGameOver());
+    CHECK_FALSE(Playership.GameOver());
 
     // Player Life Lost
     Playership.Kill();
 
     // Three Lifes Lost still playing
-    CHECK_FALSE(Playership.isGameOver());
+    CHECK_FALSE(Playership.GameOver());
 
     // Player Life Lost
     Playership.Kill();
 
     // All lifes lost game is over
-    CHECK(Playership.isGameOver());
+    CHECK(Playership.GameOver());
 }
 
 TEST_CASE("Player Bullet Collide WIth Enemy")
@@ -383,7 +385,7 @@ TEST_CASE("Player Bullet Collide WIth Enemy")
     shared_ptr<Enemy> Alien;
     shared_ptr<Player> PlayerShip;
     shared_ptr<PlayerBullet> _playerbullet;
-    PlayerShip = make_shared<Player>(_screen);
+    PlayerShip = make_shared<Player>(_screen, 3);
     Alien = make_shared<Enemy>(_screen);
     ObjectsPosition PlayerPos;
     CollisionHandler _collisionHandler;
@@ -419,7 +421,7 @@ TEST_CASE("Player Bullet Collide WIth Satellite")
     shared_ptr<Satellite> NASA;
     shared_ptr<Player> PlayerShip;
     shared_ptr<PlayerBullet> _playerbullet;
-    PlayerShip = make_shared<Player>(_screen);
+    PlayerShip = make_shared<Player>(_screen, 3);
     NASA = make_shared<Satellite>(_screen, 1);
     ObjectsPosition PlayerPos;
     CollisionHandler _collisionHandler;

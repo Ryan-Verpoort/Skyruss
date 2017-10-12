@@ -11,7 +11,7 @@ class Player : public ShootingObjects
 {
 
 public:
-    Player(Screen screen);
+    Player(Screen screen, int NumberOfLives);
 
     PlayerDirection GetDirection();
     virtual ObjectsPosition GetPosition() override;
@@ -19,26 +19,26 @@ public:
     virtual void Move() override;
     virtual bool Status() override;
     virtual shared_ptr<MovingObjects> Shoot() override;
-    void setDirection(PlayerDirection direction);
     virtual bool Respawns() override;
     virtual void Kill() override;
     virtual float GetCollisionRadius() override;
-    bool isGameOver();
+    void setDirection(PlayerDirection direction);
+    void ResetPlayer();
+    bool GameOver();
     void WeaponUpgrade();
-	bool CheckUpgrade();
+    bool CheckUpgrade();
 
 private:
-    void Respawn();
     ObjectsPosition _PlayerPosition;
-    bool _aliveStatus;
     PlayerDirection _Direction;
     Screen _screen;
+    int _NumberOfLives;
     PlayerBullet _PlayersBullet;
-    bool _reSpawn;
+    bool _IsAlive;
+    float _PlayerSpeed = 0.25;
     float _CollisionRadius = 64;
-    int _lives;
-	int _bullets;
-	bool _upgrade;
-	};
+    int _bullets = 0;
+    bool _upgrade;
+};
 
 #endif

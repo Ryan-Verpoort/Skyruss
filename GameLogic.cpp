@@ -3,13 +3,13 @@
 
 GameLogic::GameLogic()
     : _presentation()
-    , _isRunning(true)
+    , _IsPlaying(true)
     , _gameState(State::Splash)
     , NASASpawn(false)
     , DestroyerSpawn(false)
 {
     srand(time(0));
-    PlayerShip = make_shared<Player>(_screen);
+    PlayerShip = make_shared<Player>(_screen, Lives);
     _gameObjects.push_back(PlayerShip);
     for(int i = 1; i <= Lives; i++) {
 	_Lives = make_shared<PlayerLives>(_screen, i);
@@ -17,46 +17,48 @@ GameLogic::GameLogic()
     }
 }
 
-void GameLogic::run()
+void GameLogic::Run()
 {
     drawSplashScreen();
+    drawControlScreen();
 
     Timer timer;
     timer.Start();
     auto time_since_last_update = 0.f;
     auto time_per_frame = 1.0f / 6000.f;
 
-    while(_isRunning) {
-	time_since_last_update += timer.Stop();
+    while(_IsPlaying) {
+	time_since_last_update += timer.getDuration();
 	timer.Start();
 
 	while(time_since_last_update > time_per_frame) {
-	    inputCommands();
-	    SpawnAsteroid();
-	    spawnEnemy();
-	    spawnSatellite();
-	    SpawnBullets();
-	    updatePlayerPosition();
-	    updateEntities();
+	    UserInputs();
+	    AsteroidSpawn();
+	    EnemySpawn();
+	    SatelliteSpawn();
+	    BulletsSpawn();
+	    PlayerUpdate();
+	    ObjectUpdate();
 	    renderObjects();
 	    CheckForUpgrade();
 	    _collisionHandler.CheckForCollisions(_gameObjects);
 	    time_since_last_update -= time_per_frame;
 
-	    if(PlayerShip->isGameOver()) {
-		_isRunning = false;
+	    if(PlayerShip->GameOver() || EnemiesKilled == 10) {
+		_IsPlaying = false;
 		_presentation.displayGameOverScreen();
+		Restart();
 	    }
 	}
     }
 }
 
-void GameLogic::inputCommands()
+void GameLogic::UserInputs()
 {
     _presentation.processInputEvents();
 }
 
-void GameLogic::updatePlayerPosition()
+void GameLogic::PlayerUpdate()
 {
 
     if(_presentation._isSpacePressed && counter == 0) {
@@ -88,14 +90,18 @@ void GameLogic::renderObjects()
         _gameObjects.end());
 }
 
-void GameLogic::updateEntities()
+void GameLogic::ObjectUpdate()
 {
     for(auto& gameObject : _gameObjects) {
 
 	if(gameObject->GetObject() == Objects::Satellites) {
 	    if(!gameObject->Status()) {
 		NumOfSats--;
-		std::cout << NumOfSats << std::endl;
+	    }
+	}
+	if(gameObject->GetObject() == Objects::Enemy) {
+	    if(!gameObject->Status()) {
+		EnemiesKilled++;
 	    }
 	}
 	if(gameObject->Status()) {
@@ -110,7 +116,7 @@ void GameLogic::updateEntities()
     }
 }
 
-void GameLogic::spawnEnemy()
+void GameLogic::EnemySpawn()
 {
     if(spawnFactor == 3000 && Enemies < 10) {
 	Alien = make_shared<Enemy>(_screen);
@@ -123,7 +129,7 @@ void GameLogic::spawnEnemy()
     spawnFactor++;
 }
 
-void GameLogic::SpawnAsteroid()
+void GameLogic::AsteroidSpawn()
 {
     int randomSpawnFactor = rand() % 10000;
     if(randomSpawnFactor == 10 && DestroyerSpawn == false) {
@@ -145,7 +151,12 @@ void GameLogic::drawSplashScreen()
     _presentation.displaySplashScreen();
 }
 
-void GameLogic::spawnSatellite()
+void GameLogic::drawControlScreen()
+{
+    _presentation.displayControlScreen();
+}
+
+void GameLogic::SatelliteSpawn()
 {
     int randomSpawnFactor = rand() % 10000;
     if(randomSpawnFactor == 1 && NASASpawn == false) {
@@ -160,7 +171,7 @@ void GameLogic::spawnSatellite()
     }
 }
 
-void GameLogic::SpawnBullets()
+void GameLogic::BulletsSpawn()
 {
     if(BulletSpawnFactor == 1000) {
 	for(auto& gameObject : _ShootingGameObjects) {
@@ -189,5 +200,23 @@ void GameLogic::CheckForUpgrade()
     } else if((NASASpawn == true) && (PlayerShip->CheckUpgrade() == false) && (NumOfSats == -1)) {
 	NASASpawn = false;
 	NumOfSats = 3;
+    }
+}
+
+void GameLogic::Restart()
+{
+    _IsPlaying = true;
+
+    NASASpawn = false;
+    DestroyerSpawn = false;
+
+    _gameObjects.clear();
+    _ShootingGameObjects.clear();
+
+    PlayerShip = make_shared<Player>(_screen, Lives);
+    _gameObjects.push_back(PlayerShip);
+    for(int i = 1; i <= Lives; i++) {
+	_Lives = make_shared<PlayerLives>(_screen, i);
+	_gameObjects.push_back(_Lives);
     }
 }

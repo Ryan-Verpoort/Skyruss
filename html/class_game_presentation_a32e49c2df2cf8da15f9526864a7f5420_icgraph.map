@@ -1,0 +1,7 @@
+<map id="GamePresentation::handlePlayerInput" name="GamePresentation::handlePlayerInput">
+<area shape="rect" id="node2" href="$class_game_presentation.html#a61a6e259634d25e2fe24f577531681d1" title="Responsible for the polling of keyboard input. " alt="" coords="229,5,413,47"/>
+<area shape="rect" id="node3" href="$class_game_logic.html#abb2ea04c412058169fdf506ef837ca3d" title="GameLogic::UserInputs" alt="" coords="461,13,620,39"/>
+<area shape="rect" id="node4" href="$class_game_logic.html#a6217382e70519251c3d16f2a4f3e24c3" title="GameLogic::Run" alt="" coords="668,13,787,39"/>
+<area shape="rect" id="node5" href="$class_game_logic.html#a7bfbf6c5db4bd62b59d0b8c8854305b2" title="GameLogic::Restart" alt="" coords="835,13,973,39"/>
+<area shape="rect" id="node6" href="$main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="879,63,929,90"/>
+</map>

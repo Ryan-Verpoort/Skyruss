@@ -1,0 +1,4 @@
+<map id="GameLogic::drawSplashScreen" name="GameLogic::drawSplashScreen">
+<area shape="rect" id="node2" href="$class_game_presentation.html#a20a6559b8e09c45560900958bdd29f80" title="Display pre&#45;play introductory splash screen. " alt="" coords="257,5,436,47"/>
+<area shape="rect" id="node3" href="$class_splash_screen.html#aff9668c4ce4ed7a78cc61d269d31fdbb" title="Displays all information available to the user at first programme run. " alt="" coords="484,13,639,39"/>
+</map>

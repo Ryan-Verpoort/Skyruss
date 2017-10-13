@@ -1,0 +1,4 @@
+<map id="Player::GetDirection" name="Player::GetDirection">
+<area shape="rect" id="node2" href="$class_player.html#a5851f7178167c1ec9009878ab1a2f0f4" title="Allows for the circular movement of the Player craft basesd on user keyboard input. " alt="" coords="192,5,289,32"/>
+<area shape="rect" id="node3" href="$_tests_8cpp.html#a2cd31655d2e748a44fdbb71cc0ed7b70" title="TEST_CASE" alt="" coords="337,5,435,32"/>
+</map>

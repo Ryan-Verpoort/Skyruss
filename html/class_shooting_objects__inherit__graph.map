@@ -1,0 +1,6 @@
+<map id="ShootingObjects" name="ShootingObjects">
+<area shape="rect" id="node3" href="$class_enemy.html" title="{Enemy\n||+ Enemy()\l+ GetPosition()\l+ GetObject()\l+ Move()\l+ Status()\l+ Shoot()\l+ Kill()\l+ Respawns()\l+ GetCollisionRadius()\l}" alt="" coords="5,491,157,685"/>
+<area shape="rect" id="node4" href="$class_player.html" title="{Player\n||+ Player()\l+ GetDirection()\l+ GetPosition()\l+ GetObject()\l+ Move()\l+ Status()\l+ Shoot()\l+ Respawns()\l+ Kill()\l+ GetCollisionRadius()\l+ setDirection()\l+ ResetPlayer()\l+ GameOver()\l+ WeaponUpgrade()\l+ CheckUpgrade()\l}" alt="" coords="181,447,333,729"/>
+<area shape="rect" id="node5" href="$class_satellite.html" title="{Satellite\n||+ Satellite()\l+ GetPosition()\l+ GetObject()\l+ Status()\l+ Move()\l+ Shoot()\l+ Respawns()\l+ Kill()\l+ GetCollisionRadius()\l+ PlayersPos()\l}" alt="" coords="357,483,509,693"/>
+<area shape="rect" id="node2" href="$class_moving_objects.html" title="{MovingObjects\n||+ GetPosition()\l+ GetObject()\l+ Move()\l+ Status()\l+ Kill()\l+ Respawns()\l+ GetCollisionRadius()\l}" alt="" coords="181,5,333,171"/>
+</map>

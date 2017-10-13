@@ -1,0 +1,23 @@
+<map id="main.cpp" name="main.cpp">
+<area shape="rect" id="node2" href="$_game_logic_8h.html" title="GameLogic.h" alt="" coords="760,80,859,107"/>
+<area shape="rect" id="node3" href="$_asteroid_8h.html" title="Responsible for redering and movement of Asteroid object. " alt="" coords="78,304,159,331"/>
+<area shape="rect" id="node8" href="$_player_8h.html" title="PLayer generation and movement class. " alt="" coords="503,379,574,405"/>
+<area shape="rect" id="node9" href="$_player_bullet_8h.html" title="PlayerBullet.h" alt="" coords="406,453,509,480"/>
+<area shape="rect" id="node14" href="$_player_lives_8h.html" title="Responsible for storing and displaying the number of lives the Player craft has. " alt="" coords="181,453,280,480"/>
+<area shape="rect" id="node15" href="$_collision_handler_8h.html" title="Determination and handling of collision detection. " alt="" coords="1861,155,1987,181"/>
+<area shape="rect" id="node17" href="$_enemy_8h.html" title="Enemy rendering and movement class. " alt="" coords="723,229,797,256"/>
+<area shape="rect" id="node18" href="$_enemy_bullet_8h.html" title="Enemy Bullet Class. " alt="" coords="792,304,899,331"/>
+<area shape="rect" id="node19" href="$_game_presentation_8h.html" title="Game Presentation class. " alt="" coords="1192,155,1333,181"/>
+<area shape="rect" id="node28" href="$_satellite_8h.html" title="Satellite Class. " alt="" coords="821,229,901,256"/>
+<area shape="rect" id="node29" href="$_timer_8h.html" title="Timer Class. " alt="" coords="2011,155,2077,181"/>
+<area shape="rect" id="node4" href="$_screen_8h.html" title="Screen Rendering class. " alt="" coords="331,528,405,555"/>
+<area shape="rect" id="node5" href="$_moving_objects_8h.html" title="MovingObjects class. " alt="" coords="751,603,870,629"/>
+<area shape="rect" id="node6" href="$_objects_8h.html" title="Objects.h" alt="" coords="1437,677,1515,704"/>
+<area shape="rect" id="node7" href="$_objects_position_8h.html" title="ObjectPostion Class. " alt="" coords="748,677,873,704"/>
+<area shape="rect" id="node10" href="$_shooting_objects_8h.html" title="ShootingObjects class. " alt="" coords="931,528,1061,555"/>
+<area shape="rect" id="node13" href="$_player_direction_8h.html" title="PlayerDirection.h" alt="" coords="585,453,706,480"/>
+<area shape="rect" id="node21" href="$_resources_8h.html" title="Resources class. " alt="" coords="1650,229,1745,256"/>
+<area shape="rect" id="node25" href="$_splash_screen_8h.html" title="Initial game run&#45;time splash screen. " alt="" coords="1136,229,1251,256"/>
+<area shape="rect" id="node26" href="$_control_screen_8h.html" title="Display window rendering. " alt="" coords="1275,229,1389,256"/>
+<area shape="rect" id="node27" href="$_game_over_screen_8h.html" title="Game&#45;Over Splash screeen display. " alt="" coords="977,229,1111,256"/>
+</map>

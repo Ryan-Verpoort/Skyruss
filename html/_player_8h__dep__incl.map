@@ -1,0 +1,17 @@
+<map id="Player.h" name="Player.h">
+<area shape="rect" id="node2" href="$_asteroid_8h.html" title="Responsible for redering and movement of Asteroid object. " alt="" coords="12,229,93,256"/>
+<area shape="rect" id="node4" href="$_game_logic_8h.html" title="GameLogic.h" alt="" coords="183,304,282,331"/>
+<area shape="rect" id="node7" href="$_tests_8cpp.html" title="Tests.cpp" alt="" coords="393,379,472,405"/>
+<area shape="rect" id="node8" href="$_enemy_bullet_8h.html" title="Enemy Bullet Class. " alt="" coords="355,80,462,107"/>
+<area shape="rect" id="node11" href="$_game_presentation_8h.html" title="Game Presentation class. " alt="" coords="433,229,574,256"/>
+<area shape="rect" id="node14" href="$_satellite_8h.html" title="Satellite Class. " alt="" coords="686,155,766,181"/>
+<area shape="rect" id="node16" href="$_player_8cpp.html" title="Player.cpp" alt="" coords="921,80,1005,107"/>
+<area shape="rect" id="node3" href="$_asteroid_8cpp.html" title="Asteroid.cpp" alt="" coords="5,304,100,331"/>
+<area shape="rect" id="node5" href="$_game_logic_8cpp.html" title="GameLogic.cpp" alt="" coords="216,379,329,405"/>
+<area shape="rect" id="node6" href="$main_8cpp.html" title="main.cpp" alt="" coords="117,379,191,405"/>
+<area shape="rect" id="node9" href="$_enemy_8h.html" title="Enemy rendering and movement class. " alt="" coords="369,155,443,181"/>
+<area shape="rect" id="node13" href="$_enemy_bullet_8cpp.html" title="EnemyBullet.cpp" alt="" coords="223,155,344,181"/>
+<area shape="rect" id="node10" href="$_enemy_8cpp.html" title="Enemy.cpp" alt="" coords="270,229,358,256"/>
+<area shape="rect" id="node12" href="$_game_presentation_8cpp.html" title="GamePresentation.cpp" alt="" coords="470,304,625,331"/>
+<area shape="rect" id="node15" href="$_satellite_8cpp.html" title="Satellite.cpp" alt="" coords="751,229,845,256"/>
+</map>

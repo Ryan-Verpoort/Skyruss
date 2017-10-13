@@ -1,0 +1,7 @@
+<map id="TEST_CASE" name="TEST_CASE">
+<area shape="rect" id="node2" href="$class_screen.html#aef536cd9a48fdadd527b1e3f342a31b0" title="Returns the centre x&#45;position of the screen. " alt="" coords="161,5,335,32"/>
+<area shape="rect" id="node3" href="$class_enemy.html#a2d9808d254e86495f2b6434ae179a615" title="Returns the current position of Enemy craft. " alt="" coords="179,56,317,83"/>
+<area shape="rect" id="node4" href="$class_objects_position.html#a5f9815ffa2310281f63c2022bf06eb02" title="responsible for provind the current x&#45;postion of the on&#45;screen object being queried ..." alt="" coords="152,107,344,133"/>
+<area shape="rect" id="node5" href="$class_screen.html#a49b4bdcb89cecbcd70bf4946e88a4c30" title="Returns the centre y&#45;position of the screen. " alt="" coords="159,157,337,184"/>
+<area shape="rect" id="node6" href="$class_objects_position.html#a3c2a90c77c2333a2394723acc18f3618" title="responsible for provind the current y&#45;postion of the on&#45;screen object being queried ..." alt="" coords="151,208,345,235"/>
+</map>

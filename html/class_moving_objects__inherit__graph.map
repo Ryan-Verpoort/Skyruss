@@ -1,0 +1,10 @@
+<map id="MovingObjects" name="MovingObjects">
+<area shape="rect" id="node2" href="$class_asteroid.html" title="{Asteroid\n||+ Asteroid()\l+ GetPosition()\l+ GetObject()\l+ Move()\l+ Status()\l+ Kill()\l+ Respawns()\l+ GetCollisionRadius()\l+ PlayersPos()\l}" alt="" coords="5,219,157,413"/>
+<area shape="rect" id="node3" href="$class_enemy_bullet.html" title="{EnemyBullet\n||+ EnemyBullet()\l+ GetPosition()\l+ GetObject()\l+ Move()\l+ Status()\l+ Respawns()\l+ Kill()\l+ GetCollisionRadius()\l}" alt="" coords="181,226,333,406"/>
+<area shape="rect" id="node4" href="$class_player_bullet.html" title="{PlayerBullet\n||+ PlayerBullet()\l+ GetPosition()\l+ GetObject()\l+ Move()\l+ Status()\l+ Respawns()\l+ Kill()\l+ GetCollisionRadius()\l}" alt="" coords="357,226,509,406"/>
+<area shape="rect" id="node5" href="$class_player_lives.html" title="{PlayerLives\n||+ PlayerLives()\l+ GetPosition()\l+ GetObject()\l+ Move()\l+ Status()\l+ Kill()\l+ Respawns()\l+ GetCollisionRadius()\l}" alt="" coords="533,226,685,406"/>
+<area shape="rect" id="node6" href="$class_shooting_objects.html" title="{ShootingObjects\n||+ GetPosition()\l+ GetObject()\l+ Move()\l+ Status()\l+ Shoot()\l+ Respawns()\l+ Kill()\l+ GetCollisionRadius()\l}" alt="" coords="709,226,861,406"/>
+<area shape="rect" id="node7" href="$class_enemy.html" title="{Enemy\n||+ Enemy()\l+ GetPosition()\l+ GetObject()\l+ Move()\l+ Status()\l+ Shoot()\l+ Kill()\l+ Respawns()\l+ GetCollisionRadius()\l}" alt="" coords="533,505,685,700"/>
+<area shape="rect" id="node8" href="$class_player.html" title="{Player\n||+ Player()\l+ GetDirection()\l+ GetPosition()\l+ GetObject()\l+ Move()\l+ Status()\l+ Shoot()\l+ Respawns()\l+ Kill()\l+ GetCollisionRadius()\l+ setDirection()\l+ ResetPlayer()\l+ GameOver()\l+ WeaponUpgrade()\l+ CheckUpgrade()\l}" alt="" coords="709,461,861,744"/>
+<area shape="rect" id="node9" href="$class_satellite.html" title="{Satellite\n||+ Satellite()\l+ GetPosition()\l+ GetObject()\l+ Status()\l+ Move()\l+ Shoot()\l+ Respawns()\l+ Kill()\l+ GetCollisionRadius()\l+ PlayersPos()\l}" alt="" coords="885,498,1037,707"/>
+</map>

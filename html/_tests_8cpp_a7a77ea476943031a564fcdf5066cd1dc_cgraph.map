@@ -1,0 +1,6 @@
+<map id="TEST_CASE" name="TEST_CASE">
+<area shape="rect" id="node2" href="$class_enemy.html#a2d9808d254e86495f2b6434ae179a615" title="Returns the current position of Enemy craft. " alt="" coords="179,5,317,32"/>
+<area shape="rect" id="node3" href="$class_enemy_bullet.html#a1d41092d7da84854a733f63d76d92299" title="Returns the current position of the fired Enemy bullet. " alt="" coords="162,56,334,83"/>
+<area shape="rect" id="node4" href="$class_objects_position.html#a5f9815ffa2310281f63c2022bf06eb02" title="responsible for provind the current x&#45;postion of the on&#45;screen object being queried ..." alt="" coords="152,107,344,133"/>
+<area shape="rect" id="node5" href="$class_objects_position.html#a3c2a90c77c2333a2394723acc18f3618" title="responsible for provind the current y&#45;postion of the on&#45;screen object being queried ..." alt="" coords="151,157,345,184"/>
+</map>

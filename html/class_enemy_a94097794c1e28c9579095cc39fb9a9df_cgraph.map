@@ -1,0 +1,12 @@
+<map id="Enemy::Move" name="Enemy::Move">
+<area shape="rect" id="node2" href="$class_objects_position.html#a29bad8e91b4e5aacd794a0e2aafbef41" title="Responsible for providing the current angle of the queried object. " alt="" coords="164,5,340,32"/>
+<area shape="rect" id="node3" href="$class_objects_position.html#ab8c15c04155ac3984eb7fdb6d129574f" title="Responsible for setting the current x&#45;postion of the object at function call. " alt="" coords="157,56,347,83"/>
+<area shape="rect" id="node4" href="$class_objects_position.html#a92df397a2e035b0f661f9782e1dee225" title="Responsible for providing the inital x&#45;position of the created object. " alt="" coords="162,107,342,133"/>
+<area shape="rect" id="node5" href="$class_objects_position.html#a25f0d84efc7543f31f3501f21fcca921" title="Responsible for providing the radius of the quesried object. " alt="" coords="161,157,343,184"/>
+<area shape="rect" id="node6" href="$class_objects_position.html#a718449d9fa27b5be0e6690f24da4cd9f" title="Responsible for setting the initial y&#45;postion of the object at function call. " alt="" coords="155,208,349,235"/>
+<area shape="rect" id="node7" href="$class_objects_position.html#a9e9b449c8ab5a52a01bfcb304aa8edbc" title="Responsible for providing the inital y&#45;position of the created object. " alt="" coords="161,259,343,285"/>
+<area shape="rect" id="node8" href="$class_objects_position.html#a5f9815ffa2310281f63c2022bf06eb02" title="responsible for provind the current x&#45;postion of the on&#45;screen object being queried ..." alt="" coords="156,309,348,336"/>
+<area shape="rect" id="node9" href="$class_screen.html#a0f1c06f186d6cc52dd221ec47d388633" title="Returns the width of the Screen. " alt="" coords="170,360,334,387"/>
+<area shape="rect" id="node10" href="$class_objects_position.html#a3c2a90c77c2333a2394723acc18f3618" title="responsible for provind the current y&#45;postion of the on&#45;screen object being queried ..." alt="" coords="155,411,349,437"/>
+<area shape="rect" id="node11" href="$class_screen.html#a05f3db646e97ee744967bf854b0231a6" title="Returns the height of the Screen. " alt="" coords="169,461,335,488"/>
+</map>

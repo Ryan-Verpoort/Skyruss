@@ -1,0 +1,10 @@
+<map id="ObjectsPosition::GetCurrentX" name="ObjectsPosition::GetCurrentX">
+<area shape="rect" id="node2" href="$class_asteroid.html#a158d8ac531a87f5061f0c3fb2926839f" title="Handles movement functionality of created Asteroid. " alt="" coords="281,5,389,32"/>
+<area shape="rect" id="node4" href="$class_enemy.html#a94097794c1e28c9579095cc39fb9a9df" title="Responsible for the movement mechanics of all rendered Enemy crafts. " alt="" coords="284,56,385,83"/>
+<area shape="rect" id="node6" href="$class_enemy_bullet.html#af4ae624ffa4f90df3380c58b75226e22" title="Default constructor for the EnemyBullet class. " alt="" coords="245,107,424,133"/>
+<area shape="rect" id="node7" href="$class_enemy_bullet.html#a1328a4e55eacf646f35d8f84a0737cb7" title="Responsible for the movement mechanics of all generated Enemy bullets. " alt="" coords="267,157,402,184"/>
+<area shape="rect" id="node9" href="$_tests_8cpp.html#a2cd31655d2e748a44fdbb71cc0ed7b70" title="TEST_CASE" alt="" coords="286,208,383,235"/>
+<area shape="rect" id="node3" href="$_tests_8cpp.html#a67fbd2b3662d64125f0f3c220080ea6e" title="TEST_CASE" alt="" coords="472,5,569,32"/>
+<area shape="rect" id="node5" href="$_tests_8cpp.html#a7209f9e4d6478c9e17d36ec7322a280e" title="TEST_CASE" alt="" coords="472,56,569,83"/>
+<area shape="rect" id="node8" href="$_tests_8cpp.html#a8125e210d52f7df0e5398fe4e3564303" title="TEST_CASE" alt="" coords="472,157,569,184"/>
+</map>

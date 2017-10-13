@@ -1,0 +1,11 @@
+<map id="Player::Player" name="Player::Player">
+<area shape="rect" id="node2" href="$class_objects_position.html#ac50af09c60166f3c5c28452175e84a55" title="Responsible for setting the current angle of the created object. " alt="" coords="167,5,341,32"/>
+<area shape="rect" id="node3" href="$class_objects_position.html#ab8c15c04155ac3984eb7fdb6d129574f" title="Responsible for setting the current x&#45;postion of the object at function call. " alt="" coords="159,56,349,83"/>
+<area shape="rect" id="node4" href="$class_screen.html#aef536cd9a48fdadd527b1e3f342a31b0" title="Returns the centre x&#45;position of the screen. " alt="" coords="167,107,341,133"/>
+<area shape="rect" id="node5" href="$class_objects_position.html#a718449d9fa27b5be0e6690f24da4cd9f" title="Responsible for setting the initial y&#45;postion of the object at function call. " alt="" coords="157,157,351,184"/>
+<area shape="rect" id="node6" href="$class_screen.html#a49b4bdcb89cecbcd70bf4946e88a4c30" title="Returns the centre y&#45;position of the screen. " alt="" coords="165,208,343,235"/>
+<area shape="rect" id="node7" href="$class_screen.html#af045a61c40265e364bc825f234d47abc" title="Returns the object radius. " alt="" coords="171,259,337,285"/>
+<area shape="rect" id="node8" href="$class_objects_position.html#adabb84115f5d00f290192a1dbd682ca1" title="Responsible for setting the radius of the created object. " alt="" coords="164,309,344,336"/>
+<area shape="rect" id="node9" href="$class_objects_position.html#af8f3ba726b24a3b1f1ecf201d99b77cf" title="Responsible for setting the initial x&#45;postion of the created object. " alt="" coords="165,360,343,387"/>
+<area shape="rect" id="node10" href="$class_objects_position.html#a4c4279fc2811d15d50f4cb90baa6b70a" title="Responsible for setting the initial y&#45;postion of the created object. " alt="" coords="163,411,345,437"/>
+</map>

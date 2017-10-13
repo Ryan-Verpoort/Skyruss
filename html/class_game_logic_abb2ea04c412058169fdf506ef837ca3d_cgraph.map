@@ -1,0 +1,4 @@
+<map id="GameLogic::UserInputs" name="GameLogic::UserInputs">
+<area shape="rect" id="node2" href="$class_game_presentation.html#a61a6e259634d25e2fe24f577531681d1" title="Responsible for the polling of keyboard input. " alt="" coords="212,5,396,47"/>
+<area shape="rect" id="node3" href="$class_game_presentation.html#a32e49c2df2cf8da15f9526864a7f5420" title="Polls specified keys to be used as player movement commands. " alt="" coords="444,5,620,47"/>
+</map>

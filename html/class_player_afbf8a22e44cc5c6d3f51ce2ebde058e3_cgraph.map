@@ -1,0 +1,4 @@
+<map id="Player::Shoot" name="Player::Shoot">
+<area shape="rect" id="node2" href="$class_objects_position.html#adabb84115f5d00f290192a1dbd682ca1" title="Responsible for setting the radius of the created object. " alt="" coords="156,5,336,32"/>
+<area shape="rect" id="node3" href="$class_objects_position.html#a25f0d84efc7543f31f3501f21fcca921" title="Responsible for providing the radius of the quesried object. " alt="" coords="155,56,337,83"/>
+</map>

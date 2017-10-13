@@ -1,0 +1,4 @@
+<map id="Player" name="Player">
+<area shape="rect" id="node2" href="$class_shooting_objects.html" title="{ShootingObjects\n||+ GetPosition()\l+ GetObject()\l+ Move()\l+ Status()\l+ Shoot()\l+ Respawns()\l+ Kill()\l+ GetCollisionRadius()\l}" alt="" coords="5,219,157,399"/>
+<area shape="rect" id="node3" href="$class_moving_objects.html" title="{MovingObjects\n||+ GetPosition()\l+ GetObject()\l+ Move()\l+ Status()\l+ Kill()\l+ Respawns()\l+ GetCollisionRadius()\l}" alt="" coords="5,5,157,171"/>
+</map>

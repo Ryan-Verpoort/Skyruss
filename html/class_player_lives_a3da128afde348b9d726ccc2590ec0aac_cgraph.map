@@ -1,0 +1,4 @@
+<map id="PlayerLives::PlayerLives" name="PlayerLives::PlayerLives">
+<area shape="rect" id="node2" href="$class_objects_position.html#ab8c15c04155ac3984eb7fdb6d129574f" title="Responsible for setting the current x&#45;postion of the object at function call. " alt="" coords="217,5,408,32"/>
+<area shape="rect" id="node3" href="$class_objects_position.html#a718449d9fa27b5be0e6690f24da4cd9f" title="Responsible for setting the initial y&#45;postion of the object at function call. " alt="" coords="216,56,409,83"/>
+</map>

@@ -1,0 +1,4 @@
+<map id="GameLogic::drawControlScreen" name="GameLogic::drawControlScreen">
+<area shape="rect" id="node2" href="$class_game_presentation.html#a3700a157f0afe815b85b98de6969a727" title="Display pre&#45;play control screen. " alt="" coords="259,5,437,47"/>
+<area shape="rect" id="node3" href="$class_control_screen.html#a57320a5e0e7008dd16c9db9988f666c8" title="Responsible for all control screen graphic rendering during pre&#45;game display. " alt="" coords="485,13,640,39"/>
+</map>

@@ -1,0 +1,11 @@
+<map id="Asteroid::Move" name="Asteroid::Move">
+<area shape="rect" id="node2" href="$class_screen.html#aef536cd9a48fdadd527b1e3f342a31b0" title="Returns the centre x&#45;position of the screen. " alt="" coords="171,5,346,32"/>
+<area shape="rect" id="node3" href="$class_screen.html#a49b4bdcb89cecbcd70bf4946e88a4c30" title="Returns the centre y&#45;position of the screen. " alt="" coords="170,56,347,83"/>
+<area shape="rect" id="node4" href="$class_objects_position.html#a5f9815ffa2310281f63c2022bf06eb02" title="responsible for provind the current x&#45;postion of the on&#45;screen object being queried ..." alt="" coords="163,107,355,133"/>
+<area shape="rect" id="node5" href="$class_objects_position.html#a3c2a90c77c2333a2394723acc18f3618" title="responsible for provind the current y&#45;postion of the on&#45;screen object being queried ..." alt="" coords="161,157,356,184"/>
+<area shape="rect" id="node6" href="$class_objects_position.html#ab8c15c04155ac3984eb7fdb6d129574f" title="Responsible for setting the current x&#45;postion of the object at function call. " alt="" coords="163,208,354,235"/>
+<area shape="rect" id="node7" href="$class_objects_position.html#a718449d9fa27b5be0e6690f24da4cd9f" title="Responsible for setting the initial y&#45;postion of the object at function call. " alt="" coords="162,259,355,285"/>
+<area shape="rect" id="node8" href="$class_screen.html#a0f1c06f186d6cc52dd221ec47d388633" title="Returns the width of the Screen. " alt="" coords="177,309,341,336"/>
+<area shape="rect" id="node9" href="$class_asteroid.html#abfa449bec5fb96b96e6016ddcbbae2c2" title="When called, sets the boolean IsAlive status of the object to false. " alt="" coords="211,360,307,387"/>
+<area shape="rect" id="node10" href="$class_screen.html#a05f3db646e97ee744967bf854b0231a6" title="Returns the height of the Screen. " alt="" coords="175,411,342,437"/>
+</map>

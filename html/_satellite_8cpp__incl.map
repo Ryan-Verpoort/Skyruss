@@ -1,0 +1,13 @@
+<map id="Satellite.cpp" name="Satellite.cpp">
+<area shape="rect" id="node2" href="$_satellite_8h.html" title="Satellite Class. " alt="" coords="527,80,607,107"/>
+<area shape="rect" id="node3" href="$_screen_8h.html" title="Screen Rendering class. " alt="" coords="5,379,80,405"/>
+<area shape="rect" id="node4" href="$_shooting_objects_8h.html" title="ShootingObjects class. " alt="" coords="490,379,619,405"/>
+<area shape="rect" id="node10" href="$_enemy_bullet_8h.html" title="Enemy Bullet Class. " alt="" coords="513,155,620,181"/>
+<area shape="rect" id="node11" href="$_player_8h.html" title="PLayer generation and movement class. " alt="" coords="366,229,437,256"/>
+<area shape="rect" id="node5" href="$_moving_objects_8h.html" title="MovingObjects class. " alt="" coords="367,453,486,480"/>
+<area shape="rect" id="node6" href="$_objects_8h.html" title="Objects.h" alt="" coords="325,528,403,555"/>
+<area shape="rect" id="node7" href="$_objects_position_8h.html" title="ObjectPostion Class. " alt="" coords="428,528,553,555"/>
+<area shape="rect" id="node12" href="$_player_bullet_8h.html" title="PlayerBullet.h" alt="" coords="350,304,453,331"/>
+<area shape="rect" id="node13" href="$_player_direction_8h.html" title="PlayerDirection.h" alt="" coords="81,304,202,331"/>
+<area shape="rect" id="node14" href="$_player_lives_8h.html" title="Responsible for storing and displaying the number of lives the Player craft has. " alt="" coords="227,304,325,331"/>
+</map>

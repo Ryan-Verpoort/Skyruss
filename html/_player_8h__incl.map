@@ -1,0 +1,10 @@
+<map id="Player.h" name="Player.h">
+<area shape="rect" id="node2" href="$_player_bullet_8h.html" title="PlayerBullet.h" alt="" coords="179,80,282,107"/>
+<area shape="rect" id="node3" href="$_screen_8h.html" title="Screen Rendering class. " alt="" coords="104,155,179,181"/>
+<area shape="rect" id="node7" href="$_shooting_objects_8h.html" title="ShootingObjects class. " alt="" coords="266,155,395,181"/>
+<area shape="rect" id="node10" href="$_player_direction_8h.html" title="PlayerDirection.h" alt="" coords="306,80,427,107"/>
+<area shape="rect" id="node11" href="$_player_lives_8h.html" title="Responsible for storing and displaying the number of lives the Player craft has. " alt="" coords="5,80,104,107"/>
+<area shape="rect" id="node4" href="$_moving_objects_8h.html" title="MovingObjects class. " alt="" coords="158,229,277,256"/>
+<area shape="rect" id="node5" href="$_objects_8h.html" title="Objects.h" alt="" coords="115,304,194,331"/>
+<area shape="rect" id="node6" href="$_objects_position_8h.html" title="ObjectPostion Class. " alt="" coords="219,304,344,331"/>
+</map>

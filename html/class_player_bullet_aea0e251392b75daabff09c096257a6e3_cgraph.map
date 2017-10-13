@@ -1,0 +1,11 @@
+<map id="PlayerBullet::Move" name="PlayerBullet::Move">
+<area shape="rect" id="node2" href="$class_objects_position.html#a25f0d84efc7543f31f3501f21fcca921" title="Responsible for providing the radius of the quesried object. " alt="" coords="189,5,372,32"/>
+<area shape="rect" id="node3" href="$class_screen.html#af045a61c40265e364bc825f234d47abc" title="Returns the object radius. " alt="" coords="197,56,364,83"/>
+<area shape="rect" id="node4" href="$class_objects_position.html#adabb84115f5d00f290192a1dbd682ca1" title="Responsible for setting the radius of the created object. " alt="" coords="191,107,371,133"/>
+<area shape="rect" id="node5" href="$class_objects_position.html#a29bad8e91b4e5aacd794a0e2aafbef41" title="Responsible for providing the current angle of the queried object. " alt="" coords="193,157,369,184"/>
+<area shape="rect" id="node6" href="$class_objects_position.html#ab8c15c04155ac3984eb7fdb6d129574f" title="Responsible for setting the current x&#45;postion of the object at function call. " alt="" coords="185,208,376,235"/>
+<area shape="rect" id="node7" href="$class_screen.html#aef536cd9a48fdadd527b1e3f342a31b0" title="Returns the centre x&#45;position of the screen. " alt="" coords="193,259,368,285"/>
+<area shape="rect" id="node8" href="$class_objects_position.html#a718449d9fa27b5be0e6690f24da4cd9f" title="Responsible for setting the initial y&#45;postion of the object at function call. " alt="" coords="184,309,377,336"/>
+<area shape="rect" id="node9" href="$class_screen.html#a49b4bdcb89cecbcd70bf4946e88a4c30" title="Returns the centre y&#45;position of the screen. " alt="" coords="192,360,369,387"/>
+<area shape="rect" id="node10" href="$class_player_bullet.html#ab3f6c2d4871d93a9fd9f8dee5f8000e1" title="Sets the IsAlive status of specific object. " alt="" coords="221,411,340,437"/>
+</map>

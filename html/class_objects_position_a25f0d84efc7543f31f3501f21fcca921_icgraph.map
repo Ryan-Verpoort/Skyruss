@@ -1,0 +1,11 @@
+<map id="ObjectsPosition::GetRadius" name="ObjectsPosition::GetRadius">
+<area shape="rect" id="node2" href="$class_enemy.html#a94097794c1e28c9579095cc39fb9a9df" title="Responsible for the movement mechanics of all rendered Enemy crafts. " alt="" coords="275,5,376,32"/>
+<area shape="rect" id="node4" href="$class_enemy_bullet.html#af4ae624ffa4f90df3380c58b75226e22" title="Default constructor for the EnemyBullet class. " alt="" coords="236,56,415,83"/>
+<area shape="rect" id="node5" href="$class_player.html#a5851f7178167c1ec9009878ab1a2f0f4" title="Allows for the circular movement of the Player craft basesd on user keyboard input. " alt="" coords="277,107,374,133"/>
+<area shape="rect" id="node7" href="$class_player.html#afbf8a22e44cc5c6d3f51ce2ebde058e3" title="Provides the Player craft with the ability to shoot Player Bullets toward Enemy craft. " alt="" coords="275,157,376,184"/>
+<area shape="rect" id="node8" href="$class_player_bullet.html#aea0e251392b75daabff09c096257a6e3" title="Allows for all object specific movement functionality. " alt="" coords="260,208,391,235"/>
+<area shape="rect" id="node10" href="$class_satellite.html#acf65020c410bd99c1285dcb5d5e45d2b" title="Sets the postional co&#45;ordinates of the Satellite objects so that they can be used to move around the ..." alt="" coords="272,259,379,285"/>
+<area shape="rect" id="node3" href="$_tests_8cpp.html#a7209f9e4d6478c9e17d36ec7322a280e" title="TEST_CASE" alt="" coords="463,5,560,32"/>
+<area shape="rect" id="node6" href="$_tests_8cpp.html#a2cd31655d2e748a44fdbb71cc0ed7b70" title="TEST_CASE" alt="" coords="463,107,560,133"/>
+<area shape="rect" id="node9" href="$_tests_8cpp.html#a66195ff659dbe4d586605a4a0ac68e17" title="TEST_CASE" alt="" coords="463,208,560,235"/>
+</map>

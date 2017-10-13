@@ -1,0 +1,13 @@
+<map id="EnemyBullet::Move" name="EnemyBullet::Move">
+<area shape="rect" id="node2" href="$class_objects_position.html#a29bad8e91b4e5aacd794a0e2aafbef41" title="Responsible for providing the current angle of the queried object. " alt="" coords="197,5,373,32"/>
+<area shape="rect" id="node3" href="$class_objects_position.html#ab8c15c04155ac3984eb7fdb6d129574f" title="Responsible for setting the current x&#45;postion of the object at function call. " alt="" coords="190,56,381,83"/>
+<area shape="rect" id="node4" href="$class_objects_position.html#a92df397a2e035b0f661f9782e1dee225" title="Responsible for providing the inital x&#45;position of the created object. " alt="" coords="195,107,375,133"/>
+<area shape="rect" id="node5" href="$class_screen.html#af045a61c40265e364bc825f234d47abc" title="Returns the object radius. " alt="" coords="202,157,369,184"/>
+<area shape="rect" id="node6" href="$class_objects_position.html#a718449d9fa27b5be0e6690f24da4cd9f" title="Responsible for setting the initial y&#45;postion of the object at function call. " alt="" coords="189,208,382,235"/>
+<area shape="rect" id="node7" href="$class_objects_position.html#a9e9b449c8ab5a52a01bfcb304aa8edbc" title="Responsible for providing the inital y&#45;position of the created object. " alt="" coords="194,259,377,285"/>
+<area shape="rect" id="node8" href="$class_objects_position.html#a5f9815ffa2310281f63c2022bf06eb02" title="responsible for provind the current x&#45;postion of the on&#45;screen object being queried ..." alt="" coords="189,309,381,336"/>
+<area shape="rect" id="node9" href="$class_screen.html#a0f1c06f186d6cc52dd221ec47d388633" title="Returns the width of the Screen. " alt="" coords="203,360,367,387"/>
+<area shape="rect" id="node10" href="$class_objects_position.html#a3c2a90c77c2333a2394723acc18f3618" title="responsible for provind the current y&#45;postion of the on&#45;screen object being queried ..." alt="" coords="188,411,383,437"/>
+<area shape="rect" id="node11" href="$class_screen.html#a05f3db646e97ee744967bf854b0231a6" title="Returns the height of the Screen. " alt="" coords="202,461,369,488"/>
+<area shape="rect" id="node12" href="$class_enemy_bullet.html#a2e8dde078de24b8f22640581346e47da" title="Sets the boolean IsAlive status of the Enemy Bullet to false. " alt="" coords="224,512,347,539"/>
+</map>

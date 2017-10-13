@@ -1,0 +1,22 @@
+<map id="ObjectsPosition::SetCurrentY" name="ObjectsPosition::SetCurrentY">
+<area shape="rect" id="node2" href="$class_asteroid.html#a95e816bad8f850e9ed72f188c9fdc6bd" title="Default Asteroid constructor. " alt="" coords="273,5,399,32"/>
+<area shape="rect" id="node3" href="$class_asteroid.html#a158d8ac531a87f5061f0c3fb2926839f" title="Handles movement functionality of created Asteroid. " alt="" coords="282,56,390,83"/>
+<area shape="rect" id="node5" href="$class_enemy.html#a16cb6358790011cdd53db4473355fb71" title="Default Constructor for the Enemy class. " alt="" coords="280,107,392,133"/>
+<area shape="rect" id="node6" href="$class_enemy.html#a94097794c1e28c9579095cc39fb9a9df" title="Responsible for the movement mechanics of all rendered Enemy crafts. " alt="" coords="285,157,387,184"/>
+<area shape="rect" id="node8" href="$class_enemy_bullet.html#af4ae624ffa4f90df3380c58b75226e22" title="Default constructor for the EnemyBullet class. " alt="" coords="247,208,425,235"/>
+<area shape="rect" id="node9" href="$class_enemy_bullet.html#a1328a4e55eacf646f35d8f84a0737cb7" title="Responsible for the movement mechanics of all generated Enemy bullets. " alt="" coords="269,259,403,285"/>
+<area shape="rect" id="node11" href="$class_player.html#acbeb09ba918e01550ed529b4154dbf9b" title="Default Player Constructor. " alt="" coords="284,309,388,336"/>
+<area shape="rect" id="node12" href="$class_player.html#a5851f7178167c1ec9009878ab1a2f0f4" title="Allows for the circular movement of the Player craft basesd on user keyboard input. " alt="" coords="287,360,385,387"/>
+<area shape="rect" id="node14" href="$class_player.html#abb3f4c0cade55d3d63e13a29f598c267" title="Resets the player position and decreases Player lives after collision with anouther object..." alt="" coords="267,411,405,437"/>
+<area shape="rect" id="node17" href="$class_player_bullet.html#aea0e251392b75daabff09c096257a6e3" title="Allows for all object specific movement functionality. " alt="" coords="271,461,401,488"/>
+<area shape="rect" id="node19" href="$class_player_lives.html#a3da128afde348b9d726ccc2590ec0aac" title="PlayerLives Contructor. " alt="" coords="255,512,417,539"/>
+<area shape="rect" id="node20" href="$class_satellite.html#acf65020c410bd99c1285dcb5d5e45d2b" title="Sets the postional co&#45;ordinates of the Satellite objects so that they can be used to move around the ..." alt="" coords="283,563,389,589"/>
+<area shape="rect" id="node21" href="$class_satellite.html#a9ebcf7f6f5317da1a157c520fe26fb1a" title="Sets the postion of the three satellite objects to be infront of the Player&#39;s current position at tim..." alt="" coords="264,613,408,640"/>
+<area shape="rect" id="node4" href="$_tests_8cpp.html#a67fbd2b3662d64125f0f3c220080ea6e" title="TEST_CASE" alt="" coords="473,56,571,83"/>
+<area shape="rect" id="node7" href="$_tests_8cpp.html#a7209f9e4d6478c9e17d36ec7322a280e" title="TEST_CASE" alt="" coords="473,157,571,184"/>
+<area shape="rect" id="node10" href="$_tests_8cpp.html#a8125e210d52f7df0e5398fe4e3564303" title="TEST_CASE" alt="" coords="473,259,571,285"/>
+<area shape="rect" id="node13" href="$_tests_8cpp.html#a2cd31655d2e748a44fdbb71cc0ed7b70" title="TEST_CASE" alt="" coords="473,360,571,387"/>
+<area shape="rect" id="node15" href="$class_player.html#a6a0cacb435a3b4d9be7d043d1d36e02c" title="When called, it sets the Alive status of the Player object to false and resets the PLayer position to..." alt="" coords="479,411,565,437"/>
+<area shape="rect" id="node16" href="$_tests_8cpp.html#aff40794ac14ab63450b317a96b24d530" title="TEST_CASE" alt="" coords="619,411,716,437"/>
+<area shape="rect" id="node18" href="$_tests_8cpp.html#a66195ff659dbe4d586605a4a0ac68e17" title="TEST_CASE" alt="" coords="473,461,571,488"/>
+</map>

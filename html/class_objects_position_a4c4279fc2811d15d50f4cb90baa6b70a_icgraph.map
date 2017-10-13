@@ -1,0 +1,10 @@
+<map id="ObjectsPosition::SetInitialY" name="ObjectsPosition::SetInitialY">
+<area shape="rect" id="node2" href="$class_asteroid.html#a95e816bad8f850e9ed72f188c9fdc6bd" title="Default Asteroid constructor. " alt="" coords="261,5,387,32"/>
+<area shape="rect" id="node3" href="$class_enemy.html#a16cb6358790011cdd53db4473355fb71" title="Default Constructor for the Enemy class. " alt="" coords="268,56,380,83"/>
+<area shape="rect" id="node4" href="$class_enemy_bullet.html#af4ae624ffa4f90df3380c58b75226e22" title="Default constructor for the EnemyBullet class. " alt="" coords="235,107,413,133"/>
+<area shape="rect" id="node5" href="$class_player.html#acbeb09ba918e01550ed529b4154dbf9b" title="Default Player Constructor. " alt="" coords="272,157,376,184"/>
+<area shape="rect" id="node6" href="$class_player.html#abb3f4c0cade55d3d63e13a29f598c267" title="Resets the player position and decreases Player lives after collision with anouther object..." alt="" coords="255,208,393,235"/>
+<area shape="rect" id="node9" href="$class_satellite.html#a9ebcf7f6f5317da1a157c520fe26fb1a" title="Sets the postion of the three satellite objects to be infront of the Player&#39;s current position at tim..." alt="" coords="252,259,396,285"/>
+<area shape="rect" id="node7" href="$class_player.html#a6a0cacb435a3b4d9be7d043d1d36e02c" title="When called, it sets the Alive status of the Player object to false and resets the PLayer position to..." alt="" coords="461,208,547,235"/>
+<area shape="rect" id="node8" href="$_tests_8cpp.html#aff40794ac14ab63450b317a96b24d530" title="TEST_CASE" alt="" coords="595,208,692,235"/>
+</map>

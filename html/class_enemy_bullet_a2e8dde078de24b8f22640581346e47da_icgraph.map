@@ -1,0 +1,4 @@
+<map id="EnemyBullet::Kill" name="EnemyBullet::Kill">
+<area shape="rect" id="node2" href="$class_enemy_bullet.html#a1328a4e55eacf646f35d8f84a0737cb7" title="Responsible for the movement mechanics of all generated Enemy bullets. " alt="" coords="176,5,311,32"/>
+<area shape="rect" id="node3" href="$_tests_8cpp.html#a8125e210d52f7df0e5398fe4e3564303" title="TEST_CASE" alt="" coords="359,5,456,32"/>
+</map>

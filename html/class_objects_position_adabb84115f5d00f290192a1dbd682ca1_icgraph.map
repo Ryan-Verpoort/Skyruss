@@ -1,0 +1,13 @@
+<map id="ObjectsPosition::setRadius" name="ObjectsPosition::setRadius">
+<area shape="rect" id="node2" href="$class_asteroid.html#a95e816bad8f850e9ed72f188c9fdc6bd" title="Default Asteroid constructor. " alt="" coords="259,5,386,32"/>
+<area shape="rect" id="node3" href="$class_enemy.html#a16cb6358790011cdd53db4473355fb71" title="Default Constructor for the Enemy class. " alt="" coords="267,56,379,83"/>
+<area shape="rect" id="node4" href="$class_enemy_bullet.html#af4ae624ffa4f90df3380c58b75226e22" title="Default constructor for the EnemyBullet class. " alt="" coords="233,107,412,133"/>
+<area shape="rect" id="node5" href="$class_player.html#acbeb09ba918e01550ed529b4154dbf9b" title="Default Player Constructor. " alt="" coords="271,157,375,184"/>
+<area shape="rect" id="node6" href="$class_player.html#afbf8a22e44cc5c6d3f51ce2ebde058e3" title="Provides the Player craft with the ability to shoot Player Bullets toward Enemy craft. " alt="" coords="272,208,373,235"/>
+<area shape="rect" id="node7" href="$class_player.html#abb3f4c0cade55d3d63e13a29f598c267" title="Resets the player position and decreases Player lives after collision with anouther object..." alt="" coords="253,259,392,285"/>
+<area shape="rect" id="node10" href="$class_player_bullet.html#aea0e251392b75daabff09c096257a6e3" title="Allows for all object specific movement functionality. " alt="" coords="257,309,388,336"/>
+<area shape="rect" id="node12" href="$class_satellite.html#a6a3f275256799435297af7ce8b4cdb12" title="Satellite class Constructor. " alt="" coords="261,360,385,387"/>
+<area shape="rect" id="node8" href="$class_player.html#a6a0cacb435a3b4d9be7d043d1d36e02c" title="When called, it sets the Alive status of the Player object to false and resets the PLayer position to..." alt="" coords="466,259,551,285"/>
+<area shape="rect" id="node9" href="$_tests_8cpp.html#aff40794ac14ab63450b317a96b24d530" title="TEST_CASE" alt="" coords="605,259,703,285"/>
+<area shape="rect" id="node11" href="$_tests_8cpp.html#a66195ff659dbe4d586605a4a0ac68e17" title="TEST_CASE" alt="" coords="460,309,557,336"/>
+</map>

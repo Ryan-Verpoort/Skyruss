@@ -1,0 +1,5 @@
+<map id="GameLogic::SatelliteSpawn" name="GameLogic::SatelliteSpawn">
+<area shape="rect" id="node2" href="$class_game_logic.html#a6217382e70519251c3d16f2a4f3e24c3" title="GameLogic::Run" alt="" coords="236,5,355,32"/>
+<area shape="rect" id="node3" href="$class_game_logic.html#a7bfbf6c5db4bd62b59d0b8c8854305b2" title="GameLogic::Restart" alt="" coords="403,5,541,32"/>
+<area shape="rect" id="node4" href="$main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="447,56,497,83"/>
+</map>

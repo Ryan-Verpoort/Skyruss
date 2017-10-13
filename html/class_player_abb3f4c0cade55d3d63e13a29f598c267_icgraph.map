@@ -1,0 +1,4 @@
+<map id="Player::ResetPlayer" name="Player::ResetPlayer">
+<area shape="rect" id="node2" href="$class_player.html#a6a0cacb435a3b4d9be7d043d1d36e02c" title="When called, it sets the Alive status of the Player object to false and resets the PLayer position to..." alt="" coords="192,5,277,32"/>
+<area shape="rect" id="node3" href="$_tests_8cpp.html#aff40794ac14ab63450b317a96b24d530" title="TEST_CASE" alt="" coords="325,5,423,32"/>
+</map>

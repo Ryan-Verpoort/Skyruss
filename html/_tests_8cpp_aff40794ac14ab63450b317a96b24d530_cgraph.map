@@ -1,0 +1,15 @@
+<map id="TEST_CASE" name="TEST_CASE">
+<area shape="rect" id="node2" href="$class_player.html#a4de44221d5ba963d52cc966f72829d0a" title="Provides the Alive status of the Player craft based on information returned from Collision detection..." alt="" coords="162,107,267,133"/>
+<area shape="rect" id="node3" href="$class_player.html#a0bc8bad271133b480a4b4fc438cc9095" title="Checks the number of lives of the Player to determine whether or not the game is over. " alt="" coords="151,157,279,184"/>
+<area shape="rect" id="node4" href="$class_player.html#a6a0cacb435a3b4d9be7d043d1d36e02c" title="When called, it sets the Alive status of the Player object to false and resets the PLayer position to..." alt="" coords="172,208,257,235"/>
+<area shape="rect" id="node5" href="$class_player.html#abb3f4c0cade55d3d63e13a29f598c267" title="Resets the player position and decreases Player lives after collision with anouther object..." alt="" coords="327,208,465,235"/>
+<area shape="rect" id="node6" href="$class_objects_position.html#ac50af09c60166f3c5c28452175e84a55" title="Responsible for setting the current angle of the created object. " alt="" coords="523,5,697,32"/>
+<area shape="rect" id="node7" href="$class_objects_position.html#ab8c15c04155ac3984eb7fdb6d129574f" title="Responsible for setting the current x&#45;postion of the object at function call. " alt="" coords="515,56,705,83"/>
+<area shape="rect" id="node8" href="$class_screen.html#aef536cd9a48fdadd527b1e3f342a31b0" title="Returns the centre x&#45;position of the screen. " alt="" coords="523,107,697,133"/>
+<area shape="rect" id="node9" href="$class_objects_position.html#a718449d9fa27b5be0e6690f24da4cd9f" title="Responsible for setting the initial y&#45;postion of the object at function call. " alt="" coords="513,157,707,184"/>
+<area shape="rect" id="node10" href="$class_screen.html#a49b4bdcb89cecbcd70bf4946e88a4c30" title="Returns the centre y&#45;position of the screen. " alt="" coords="521,208,699,235"/>
+<area shape="rect" id="node11" href="$class_screen.html#af045a61c40265e364bc825f234d47abc" title="Returns the object radius. " alt="" coords="527,259,693,285"/>
+<area shape="rect" id="node12" href="$class_objects_position.html#adabb84115f5d00f290192a1dbd682ca1" title="Responsible for setting the radius of the created object. " alt="" coords="520,309,700,336"/>
+<area shape="rect" id="node13" href="$class_objects_position.html#af8f3ba726b24a3b1f1ecf201d99b77cf" title="Responsible for setting the initial x&#45;postion of the created object. " alt="" coords="521,360,699,387"/>
+<area shape="rect" id="node14" href="$class_objects_position.html#a4c4279fc2811d15d50f4cb90baa6b70a" title="Responsible for setting the initial y&#45;postion of the created object. " alt="" coords="519,411,701,437"/>
+</map>

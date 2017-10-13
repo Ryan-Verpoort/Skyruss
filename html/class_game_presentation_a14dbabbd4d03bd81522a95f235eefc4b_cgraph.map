@@ -1,0 +1,4 @@
+<map id="GamePresentation::GamePresentation" name="GamePresentation::GamePresentation">
+<area shape="rect" id="node2" href="$class_game_presentation.html#a304303aca1ce060051b7e13471c5e62d" title="Draw galaxy backdrop present during run&#45;time. " alt="" coords="300,5,535,32"/>
+<area shape="rect" id="node3" href="$class_game_presentation.html#ad0888d5583f623ba5b79df42d230a696" title="Load textures from file. " alt="" coords="311,56,523,83"/>
+</map>

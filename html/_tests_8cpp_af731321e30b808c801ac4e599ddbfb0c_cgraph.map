@@ -1,0 +1,4 @@
+<map id="TEST_CASE" name="TEST_CASE">
+<area shape="rect" id="node2" href="$class_collision_handler.html#aa435593be7815b2ea58c92a5c949b604" title="Responisible for checking Player collisions with other rendered objects. " alt="" coords="151,5,329,47"/>
+<area shape="rect" id="node3" href="$class_collision_handler.html#a9ba1c21d89238ec3cff12c73ad6d8a5b" title="Used in identfying the collision distance of all objects redered within the screen window..." alt="" coords="377,5,549,47"/>
+</map>

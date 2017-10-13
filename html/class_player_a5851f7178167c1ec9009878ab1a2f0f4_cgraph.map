@@ -1,0 +1,10 @@
+<map id="Player::Move" name="Player::Move">
+<area shape="rect" id="node2" href="$class_player.html#a5aefb4bd4a80a0cfcb9bbc010f5d7838" title="Returns the current movement Direction of the Player craft. " alt="" coords="178,5,317,32"/>
+<area shape="rect" id="node3" href="$class_objects_position.html#ac50af09c60166f3c5c28452175e84a55" title="Responsible for setting the current angle of the created object. " alt="" coords="161,56,334,83"/>
+<area shape="rect" id="node4" href="$class_objects_position.html#a29bad8e91b4e5aacd794a0e2aafbef41" title="Responsible for providing the current angle of the queried object. " alt="" coords="159,107,335,133"/>
+<area shape="rect" id="node5" href="$class_objects_position.html#ab8c15c04155ac3984eb7fdb6d129574f" title="Responsible for setting the current x&#45;postion of the object at function call. " alt="" coords="152,157,343,184"/>
+<area shape="rect" id="node6" href="$class_objects_position.html#a92df397a2e035b0f661f9782e1dee225" title="Responsible for providing the inital x&#45;position of the created object. " alt="" coords="157,208,337,235"/>
+<area shape="rect" id="node7" href="$class_objects_position.html#a25f0d84efc7543f31f3501f21fcca921" title="Responsible for providing the radius of the quesried object. " alt="" coords="156,259,339,285"/>
+<area shape="rect" id="node8" href="$class_objects_position.html#a718449d9fa27b5be0e6690f24da4cd9f" title="Responsible for setting the initial y&#45;postion of the object at function call. " alt="" coords="151,309,344,336"/>
+<area shape="rect" id="node9" href="$class_objects_position.html#a9e9b449c8ab5a52a01bfcb304aa8edbc" title="Responsible for providing the inital y&#45;position of the created object. " alt="" coords="156,360,339,387"/>
+</map>

@@ -1,0 +1,11 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$class_moving_objects.html" title="MovingObjects" alt="" coords="5,107,112,133"/>
+<area shape="rect" id="node2" href="$class_asteroid.html" title="Asteroid" alt="" coords="184,5,255,32"/>
+<area shape="rect" id="node3" href="$class_enemy_bullet.html" title="EnemyBullet" alt="" coords="171,56,267,83"/>
+<area shape="rect" id="node4" href="$class_player_bullet.html" title="PlayerBullet" alt="" coords="173,107,265,133"/>
+<area shape="rect" id="node5" href="$class_player_lives.html" title="PlayerLives" alt="" coords="175,157,263,184"/>
+<area shape="rect" id="node6" href="$class_shooting_objects.html" title="ShootingObjects" alt="" coords="160,208,279,235"/>
+<area shape="rect" id="node7" href="$class_enemy.html" title="Enemy" alt="" coords="330,157,393,184"/>
+<area shape="rect" id="node8" href="$class_player.html" title="Player" alt="" coords="332,208,391,235"/>
+<area shape="rect" id="node9" href="$class_satellite.html" title="Satellite" alt="" coords="327,259,396,285"/>
+</map>

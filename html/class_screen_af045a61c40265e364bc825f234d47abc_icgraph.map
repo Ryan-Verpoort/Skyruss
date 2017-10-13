@@ -1,0 +1,13 @@
+<map id="Screen::getObjectRadius" name="Screen::getObjectRadius">
+<area shape="rect" id="node2" href="$class_asteroid.html#a95e816bad8f850e9ed72f188c9fdc6bd" title="Default Asteroid constructor. " alt="" coords="226,5,353,32"/>
+<area shape="rect" id="node3" href="$class_enemy.html#a16cb6358790011cdd53db4473355fb71" title="Default Constructor for the Enemy class. " alt="" coords="233,56,345,83"/>
+<area shape="rect" id="node4" href="$class_enemy_bullet.html#a1328a4e55eacf646f35d8f84a0737cb7" title="Responsible for the movement mechanics of all generated Enemy bullets. " alt="" coords="222,107,357,133"/>
+<area shape="rect" id="node6" href="$class_player.html#acbeb09ba918e01550ed529b4154dbf9b" title="Default Player Constructor. " alt="" coords="237,157,341,184"/>
+<area shape="rect" id="node7" href="$class_player.html#abb3f4c0cade55d3d63e13a29f598c267" title="Resets the player position and decreases Player lives after collision with anouther object..." alt="" coords="220,208,359,235"/>
+<area shape="rect" id="node10" href="$class_player_bullet.html#aea0e251392b75daabff09c096257a6e3" title="Allows for all object specific movement functionality. " alt="" coords="224,259,355,285"/>
+<area shape="rect" id="node12" href="$_tests_8cpp.html#a2cd31655d2e748a44fdbb71cc0ed7b70" title="TEST_CASE" alt="" coords="241,309,338,336"/>
+<area shape="rect" id="node5" href="$_tests_8cpp.html#a8125e210d52f7df0e5398fe4e3564303" title="TEST_CASE" alt="" coords="407,107,504,133"/>
+<area shape="rect" id="node8" href="$class_player.html#a6a0cacb435a3b4d9be7d043d1d36e02c" title="When called, it sets the Alive status of the Player object to false and resets the PLayer position to..." alt="" coords="413,208,498,235"/>
+<area shape="rect" id="node9" href="$_tests_8cpp.html#aff40794ac14ab63450b317a96b24d530" title="TEST_CASE" alt="" coords="552,208,649,235"/>
+<area shape="rect" id="node11" href="$_tests_8cpp.html#a66195ff659dbe4d586605a4a0ac68e17" title="TEST_CASE" alt="" coords="407,259,504,285"/>
+</map>

@@ -10,7 +10,6 @@
 #include "PlayerBullet.h"
 #include "PlayerLives.h"
 #include "Satellite.h"
-#include "State.h"
 #include "Timer.h"
 
 #include <vector>
@@ -38,12 +37,12 @@ public:
     void AsteroidSpawn();
     void BulletsSpawn();
     void CheckForUpgrade();
-	void Restart();
+    void Restart();
 
 private:
     shared_ptr<PlayerBullet> _playerBullet;
     GamePresentation _presentation;
-    Screen _screen{ 1000, 800 };
+    Screen _screen{ 1000, 750 };
     shared_ptr<Player> PlayerShip;
     shared_ptr<PlayerLives> _Lives;
     shared_ptr<Enemy> Alien;
@@ -53,15 +52,14 @@ private:
     vector<shared_ptr<MovingObjects> > _gameObjects;
     vector<shared_ptr<ShootingObjects> > _ShootingGameObjects;
     bool _IsPlaying;
-    State _gameState;
     bool _isSplashScreen;
     bool NASASpawn;
     bool DestroyerSpawn;
     int counter = 0;
     int Enemies = 0;
-	int EnemiesKilled = 0;
+    int EnemiesKilled = 0;
     int NumOfSats = 3;
-    int Lives = 3;
+    int Lives = 5;
     int spawnFactor = 3000;
     int BulletSpawnFactor = 0;
 

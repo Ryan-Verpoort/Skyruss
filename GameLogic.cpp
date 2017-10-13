@@ -1,10 +1,8 @@
 #include "GameLogic.h"
-#include <iostream>
 
 GameLogic::GameLogic()
     : _presentation()
     , _IsPlaying(true)
-    , _gameState(State::Splash)
     , NASASpawn(false)
     , DestroyerSpawn(false)
 {
@@ -24,25 +22,27 @@ void GameLogic::Run()
 
     Timer timer;
     timer.Start();
-    auto time_since_last_update = 0.f;
-    auto time_per_frame = 1.0f / 6000.f;
+    auto Update_Time = 0.f;
+    // 60 Frames per Second
+    auto Frame_Time = 1.0f / 6000.f;
 
     while(_IsPlaying) {
-	time_since_last_update += timer.getDuration();
+	Update_Time += timer.getDuration();
 	timer.Start();
 
-	while(time_since_last_update > time_per_frame) {
-	    UserInputs();
-	    AsteroidSpawn();
+	while(Update_Time > Frame_Time) {
+	    renderObjects();
 	    EnemySpawn();
-	    SatelliteSpawn();
-	    BulletsSpawn();
 	    PlayerUpdate();
 	    ObjectUpdate();
-	    renderObjects();
+	    UserInputs();
+	    SatelliteSpawn();
+	    AsteroidSpawn();
+	    BulletsSpawn();
 	    CheckForUpgrade();
+
 	    _collisionHandler.CheckForCollisions(_gameObjects);
-	    time_since_last_update -= time_per_frame;
+	    Update_Time -= Frame_Time;
 
 	    if(PlayerShip->GameOver() || EnemiesKilled == 10) {
 		_IsPlaying = false;
@@ -55,7 +55,7 @@ void GameLogic::Run()
 
 void GameLogic::UserInputs()
 {
-    _presentation.processInputEvents();
+    _presentation.UserInputs();
 }
 
 void GameLogic::PlayerUpdate()
@@ -84,7 +84,7 @@ void GameLogic::renderObjects()
 {
 
     _presentation.renderWindow(_gameObjects);
-
+    // In line Queries on data lambda thing
     _gameObjects.erase(remove_if(_gameObjects.begin(), _gameObjects.end(),
                            [](shared_ptr<MovingObjects>& ObjectsInGame) { return (!ObjectsInGame->Status()); }),
         _gameObjects.end());

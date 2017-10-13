@@ -23,14 +23,13 @@ class GamePresentation
 public:
     GamePresentation();
     void renderWindow(vector<shared_ptr<MovingObjects> >& gameObjects);
-    void processInputEvents();
-    void handlePlayerInput(sf::Keyboard::Key key, bool isPressed);
-    void loadTextures();
-    void drawBackground();
+    void UserInputs();
+    void UserInputEvents(sf::Keyboard::Key key, bool isPressed);
+    void Textures();
+    void displayBackground();
     void displaySplashScreen();
     void displayControlScreen();
     void displayGameOverScreen();
-    void draw(sf::Sprite& sprite);
 
     bool _isLeftPressed = false;
     bool _isRightPressed = false;

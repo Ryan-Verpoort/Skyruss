@@ -6,20 +6,20 @@ sf::Sprite tempSprite;
 sf::Texture tempTexture;
 
 GamePresentation::GamePresentation()
-    : _window(sf::VideoMode(1000, 800), "Gyruss")
+    : _window(sf::VideoMode(1000, 750), "Gyruss")
 {
 
     _backgroundTexture.loadFromFile("resources/Nebula.jpg");
     _backgroundTexture.setSmooth(true);
     _backgroundSprite.setTexture(_backgroundTexture);
-    drawBackground();
+    displayBackground();
 
     tempTexture.loadFromFile("resources/Bullet.png");
     tempSprite.setTexture(tempTexture);
-    loadTextures();
+    Textures();
 }
 
-void GamePresentation::drawBackground()
+void GamePresentation::displayBackground()
 {
     _window.draw(_backgroundSprite);
 }
@@ -49,17 +49,17 @@ void GamePresentation::renderWindow(vector<shared_ptr<MovingObjects> >& gameObje
     _window.display();
 }
 
-void GamePresentation::processInputEvents()
+void GamePresentation::UserInputs()
 {
     sf::Event event;
     while(_window.pollEvent(event)) {
 	switch(event.type) {
 	case sf::Event::KeyPressed:
-	    handlePlayerInput(event.key.code, true);
+	    UserInputEvents(event.key.code, true);
 	    break;
 
 	case sf::Event::KeyReleased:
-	    handlePlayerInput(event.key.code, false);
+	    UserInputEvents(event.key.code, false);
 	    break;
 
 	default:
@@ -68,7 +68,7 @@ void GamePresentation::processInputEvents()
     }
 }
 
-void GamePresentation::handlePlayerInput(sf::Keyboard::Key key, bool isPressed)
+void GamePresentation::UserInputEvents(sf::Keyboard::Key key, bool isPressed)
 {
     if((key == sf::Keyboard::Right))
 	_isRightPressed = isPressed;
@@ -86,7 +86,7 @@ void GamePresentation::handlePlayerInput(sf::Keyboard::Key key, bool isPressed)
     counter = 0;
 }
 
-void GamePresentation::loadTextures()
+void GamePresentation::Textures()
 {
     for(unsigned int i = 0; i != _paths.size(); i++) {
 	Resources resource{ static_cast<Objects>(i), _paths.at(i) };

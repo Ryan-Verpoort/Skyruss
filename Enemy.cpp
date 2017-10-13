@@ -40,7 +40,7 @@ void Enemy::Move()
     // Check Objects Position if off Screen Delete
     if((_enemyPos.GetCurrentX() > _screen.getScreenWidth()) || (_enemyPos.GetCurrentY() > _screen.getScreenHeight()) ||
         (_enemyPos.GetCurrentX() < 0) || (_enemyPos.GetCurrentY() < 0)) {
-	_IsAlive = false;
+	Kill();
 	_ObjectRespawns = true;
     }
 }

@@ -450,3 +450,133 @@ TEST_CASE("Player Bullet Collide WIth Satellite")
     CHECK_FALSE(NASA->Status());
     CHECK_FALSE(_playerbullet->Status());
 }
+
+TEST_CASE("Enemy Bullet Collide WIth Player")
+{
+    // Create Objects
+    shared_ptr<Enemy> Alien;
+    shared_ptr<Player> PlayerShip;
+    shared_ptr<EnemyBullet> _AlienBullet;
+    shared_ptr<PlayerLives> _Lives;
+    PlayerShip = make_shared<Player>(_screen, 3);
+    Alien = make_shared<Enemy>(_screen);
+    _Lives = make_shared<PlayerLives>(_screen, 1);
+
+    // Create two Object Positions
+    ObjectsPosition PlayerPos;
+    ObjectsPosition AlienPos;
+
+    // Collision Handler
+    CollisionHandler _collisionHandler;
+    PlayerPos = PlayerShip->GetPosition();
+    AlienPos = Alien->GetPosition();
+
+    // Set Angle as Players Angle
+    AlienPos.setAngle(PlayerPos.GetAngle());
+    _AlienBullet = make_shared<EnemyBullet>(PlayerPos, _screen);
+
+    vector<shared_ptr<MovingObjects> > _gameObjects;
+
+    // Initialise Vector
+    _gameObjects.push_back(_Lives);
+    _gameObjects.push_back(PlayerShip);
+    _gameObjects.push_back(_AlienBullet);
+
+    // Check Live of Player and bullet Alive
+    CHECK(_Lives->Status());
+    CHECK(_AlienBullet->Status());
+
+    // Move Bullet untill bullet destroyed
+    while(_AlienBullet->Status()) {
+
+	_collisionHandler.CheckForCollisions(_gameObjects);
+	_AlienBullet->Move();
+    }
+
+    // Check PlayerLives and bullet Dead
+    CHECK_FALSE(_Lives->Status());
+    CHECK_FALSE(_AlienBullet->Status());
+}
+
+TEST_CASE("Player Asteroid Collide")
+{
+    // Create Objects
+    shared_ptr<Asteroid> Destroyer;
+    shared_ptr<Player> PlayerShip;
+    shared_ptr<PlayerLives> _Lives;
+    PlayerShip = make_shared<Player>(_screen, 3);
+    Destroyer = make_shared<Asteroid>(_screen);
+    _Lives = make_shared<PlayerLives>(_screen, 1);
+
+    // Get Players position
+    Destroyer->PlayersPos(PlayerShip);
+
+    // Collision Handler
+    CollisionHandler _collisionHandler;
+
+    vector<shared_ptr<MovingObjects> > _gameObjects;
+
+    // Populate Vector
+    _gameObjects.push_back(_Lives);
+    _gameObjects.push_back(PlayerShip);
+    _gameObjects.push_back(Destroyer);
+
+    // Check Player live is Alive
+    CHECK(_Lives->Status());
+
+    // Move Asteroid untill Live destroyed
+    while(_Lives->Status()) {
+
+	_collisionHandler.CheckForCollisions(_gameObjects);
+	Destroyer->Move();
+    }
+
+    // Check Player Dead
+    CHECK_FALSE(_Lives->Status());
+}
+
+TEST_CASE("Player Enemy Collide")
+{
+    // Create Objects
+    shared_ptr<Enemy> Alien;
+    shared_ptr<Player> PlayerShip;
+    shared_ptr<PlayerLives> _Lives;
+    PlayerShip = make_shared<Player>(_screen, 3);
+    Alien = make_shared<Enemy>(_screen);
+    _Lives = make_shared<PlayerLives>(_screen, 1);
+
+    // Create two Object Positions
+    ObjectsPosition PlayerPos;
+    ObjectsPosition AlienPos;
+
+    // Collision Handler
+    CollisionHandler _collisionHandler;
+    PlayerPos = PlayerShip->GetPosition();
+    AlienPos = Alien->GetPosition();
+
+    AlienPos.setAngle(PlayerPos.GetAngle());
+
+    // Set Angle as Players Angle
+    AlienPos.setAngle(PlayerPos.GetAngle());
+
+    vector<shared_ptr<MovingObjects> > _gameObjects;
+
+    // Populate Vector
+    _gameObjects.push_back(_Lives);
+    _gameObjects.push_back(PlayerShip);
+    _gameObjects.push_back(Alien);
+
+    // Check Player live is Alive
+    CHECK(_Lives->Status());
+    CHECK(Alien->Status());
+
+    // Move Asteroid untill Live destroyed
+    while(Alien->Status()) {
+
+	_collisionHandler.CheckForCollisions(_gameObjects);
+	Alien->Move();
+    }
+
+    // Check Player Dead
+    CHECK_FALSE(Alien->Status());
+}

@@ -16,11 +16,13 @@ public:
     void CheckForCollisions(vector<shared_ptr<MovingObjects> >& GameObjects);
 
 private:
-    void PlayerEnemyCollide(shared_ptr<MovingObjects>& Object_1, shared_ptr<MovingObjects>& Object_2);
+    void PlayerCollision(shared_ptr<MovingObjects>& Object_1, shared_ptr<MovingObjects>& Object_2);
     void PlayerAsteroidCollide(shared_ptr<MovingObjects>& Object_1, shared_ptr<MovingObjects>& Object_2);
+    void PlayerLaserCollide(shared_ptr<MovingObjects>& Object_1, shared_ptr<MovingObjects>& Object_2);
     void PlayerBulletCollide(shared_ptr<MovingObjects>& Object_1, shared_ptr<MovingObjects>& Object_2);
     void EnemyBulletCollide(shared_ptr<MovingObjects>& Object_1, shared_ptr<MovingObjects>& Object_2);
     void SatelliteBulletCollide(shared_ptr<MovingObjects>& Object_1, shared_ptr<MovingObjects>& Object_2);
+    void LaserBulletCollide(shared_ptr<MovingObjects>& Object_1, shared_ptr<MovingObjects>& Object_2);
     void AssignLife(shared_ptr<MovingObjects>& Object_2);
     float _Collision;
     shared_ptr<MovingObjects> _life;

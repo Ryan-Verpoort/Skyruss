@@ -5,6 +5,7 @@ GameLogic::GameLogic()
     , _IsPlaying(true)
     , NASASpawn(false)
     , DestroyerSpawn(false)
+    , LaserSpawn(false)
 {
     srand(time(0));
     PlayerShip = make_shared<Player>(_screen, Lives);
@@ -31,17 +32,18 @@ void GameLogic::Run()
 	timer.Start();
 
 	while(Update_Time > Frame_Time) {
-	    renderObjects();
 	    EnemySpawn();
-	    PlayerUpdate();
-	    ObjectUpdate();
-	    UserInputs();
 	    SatelliteSpawn();
 	    AsteroidSpawn();
+	    LasersSpawn();
+	    UserInputs();
+	    PlayerUpdate();
 	    BulletsSpawn();
 	    CheckForUpgrade();
+	    ObjectUpdate();
+	    renderObjects();
+	    CheckCollisions();
 
-	    _collisionHandler.CheckForCollisions(_gameObjects);
 	    Update_Time -= Frame_Time;
 
 	    if(PlayerShip->GameOver() || EnemiesKilled == 10) {
@@ -61,23 +63,23 @@ void GameLogic::UserInputs()
 void GameLogic::PlayerUpdate()
 {
 
-    if(_presentation._isSpacePressed && counter == 0) {
+    if(_presentation.SpacePressed && Shots == 0) {
 	if(PlayerShip->CheckUpgrade()) {
 	    _gameObjects.push_back(PlayerShip->Shoot());
 	    _gameObjects.push_back(PlayerShip->Shoot());
 	} else {
 	    _gameObjects.push_back(PlayerShip->Shoot());
 	}
-	counter++;
+	Shots++;
     }
-    if(_presentation._isLeftPressed)
+    if(_presentation.LeftKeyPressed)
 	PlayerShip->setDirection(PlayerDirection::Clockwise);
-    else if(_presentation._isRightPressed)
+    else if(_presentation.RightKeyPressed)
 	PlayerShip->setDirection(PlayerDirection::Anticlockwise);
     else
 	PlayerShip->setDirection(PlayerDirection::Hold);
-    if(!_presentation._isSpacePressed && counter > 0)
-	counter = 0;
+    if(!_presentation.SpacePressed && Shots > 0)
+	Shots = 0;
 }
 
 void GameLogic::renderObjects()
@@ -209,19 +211,40 @@ void GameLogic::Restart()
 
     NASASpawn = false;
     DestroyerSpawn = false;
+    LaserSpawn = false;
 
     _gameObjects.clear();
     _ShootingGameObjects.clear();
-    Lives = 4;
+
+    Lives = 3;
+
     PlayerShip = make_shared<Player>(_screen, Lives);
     _gameObjects.push_back(PlayerShip);
+
     for(int i = 1; i <= Lives - 1; i++) {
 	_Lives = make_shared<PlayerLives>(_screen, i);
 	_gameObjects.push_back(_Lives);
+	// Run();
     }
-    PlayerShip->Kill();
+
     PlayerShip->setDirection(PlayerDirection::Hold);
     EnemiesKilled = 0;
     Enemies = 0;
-    Run();
+    NumOfSats = 3;
+}
+
+void GameLogic::CheckCollisions()
+{
+    _collisionHandler.CheckForCollisions(_gameObjects);
+}
+
+void GameLogic::LasersSpawn()
+{
+    int randomSpawnFactor = rand() % 10000;
+    if(randomSpawnFactor == 10 && LaserSpawn == false) {
+	Laser = make_shared<LaserGenerators>(_screen);
+	Laser->PlayersPos(PlayerShip);
+	_gameObjects.push_back(Laser);
+	LaserSpawn = true;
+    }
 }

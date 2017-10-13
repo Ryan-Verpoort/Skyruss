@@ -31,11 +31,9 @@ public:
     void displayControlScreen();
     void displayGameOverScreen();
 
-    bool _isLeftPressed = false;
-    bool _isRightPressed = false;
-    bool _isSpacePressed = false;
-
-    int counter = 0;
+    bool LeftKeyPressed = false;
+    bool RightKeyPressed = false;
+    bool SpacePressed = false;
 
 private:
     sf::RenderWindow _window;
@@ -43,10 +41,10 @@ private:
     sf::Texture _backgroundTexture;
     sf::Sprite _backgroundSprite;
 
-    vector<sf::Sprite> _allSprites;
+    int Delay = 0;
 
     vector<string> _paths = { "resources/Spaceship2.png", "resources/Enemy2.png", "resources/Satellite1.png",
-	"resources/Asteroid2.png", "resources/Bullet1.png", "resources/EnemyBullet1.png", "resources/heart1.png" };
+	"resources/Asteroid2.png", "resources/Bullet1.png", "resources/EnemyBullet1.png", "resources/heart1.png", "resources/LaserGrid.png" };
 
     struct textureIdentifier {
 	sf::Texture texture;

@@ -6,6 +6,7 @@
 #include "Enemy.h"
 #include "EnemyBullet.h"
 #include "GamePresentation.h"
+#include "LaserGenerators.h"
 #include "Player.h"
 #include "PlayerBullet.h"
 #include "PlayerLives.h"
@@ -25,16 +26,17 @@ class GameLogic
 public:
     GameLogic();
     void Run();
-    void renderObjects();
+    void AsteroidSpawn();
     void EnemySpawn();
+    void SatelliteSpawn();
+	void LasersSpawn();
+    void renderObjects();
     void PlayerUpdate();
     void ObjectUpdate();
     void UserInputs();
     void drawSplashScreen();
     void drawControlScreen();
-    void SatelliteSpawn();
     void CheckCollisions();
-    void AsteroidSpawn();
     void BulletsSpawn();
     void CheckForUpgrade();
     void Restart();
@@ -48,6 +50,7 @@ private:
     shared_ptr<Enemy> Alien;
     shared_ptr<Satellite> NASA;
     shared_ptr<Asteroid> Destroyer;
+	shared_ptr<LaserGenerators> Laser;
     shared_ptr<EnemyBullet> _EnemyBullet;
     vector<shared_ptr<MovingObjects> > _gameObjects;
     vector<shared_ptr<ShootingObjects> > _ShootingGameObjects;
@@ -55,12 +58,14 @@ private:
     bool _isSplashScreen;
     bool NASASpawn;
     bool DestroyerSpawn;
-    int counter = 0;
+	bool LaserSpawn;
+    int Shots = 0;
     int Enemies = 0;
     int EnemiesKilled = 0;
     int NumOfSats = 3;
-    int Lives = 5;
+    int Lives = 3;
     int spawnFactor = 3000;
+	int LaserSpawnFactor = 0;
     int BulletSpawnFactor = 0;
 
     CollisionHandler _collisionHandler;

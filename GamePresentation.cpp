@@ -71,19 +71,19 @@ void GamePresentation::UserInputs()
 void GamePresentation::UserInputEvents(sf::Keyboard::Key key, bool isPressed)
 {
     if((key == sf::Keyboard::Right))
-	_isRightPressed = isPressed;
+	RightKeyPressed = isPressed;
     else if((key == sf::Keyboard::Left))
-	_isLeftPressed = isPressed;
+	LeftKeyPressed = isPressed;
     if((key == sf::Keyboard::Escape))
 	_window.close();
     if(key == sf::Keyboard::Space && isPressed == true)
-	if(counter == 0) {
-	    _isSpacePressed = true;
-	    counter++;
+	if(Delay == 0) {
+	    SpacePressed = true;
+	    Delay++;
 	}
     if(key == sf::Keyboard::Space && isPressed == false)
-	_isSpacePressed = false;
-    counter = 0;
+	SpacePressed = false;
+    Delay = 0;
 }
 
 void GamePresentation::Textures()
@@ -93,15 +93,15 @@ void GamePresentation::Textures()
 	_ObjectsTextures.push_back(resource);
     }
 
-    for(auto entityTexture : _ObjectsTextures) {
+    for(auto ObjectsTexture : _ObjectsTextures) {
 	sf::Texture texture;
-	texture.loadFromFile(entityTexture.GetObjectResourcePath());
+	texture.loadFromFile(ObjectsTexture.GetObjectResourcePath());
 	texture.setSmooth(true);
 
-	textureIdentifier currentTex;
-	currentTex.GameObject = entityTexture.GetGameObjectType();
-	currentTex.texture = texture;
-	_textureslList.push_back(currentTex);
+	textureIdentifier ObjectTexture;
+	ObjectTexture.GameObject = ObjectsTexture.GetGameObjectType();
+	ObjectTexture.texture = texture;
+	_textureslList.push_back(ObjectTexture);
     }
 }
 

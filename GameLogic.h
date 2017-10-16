@@ -64,7 +64,7 @@ private:
     int EnemiesKilled = 0;
     int NumOfSats = 3;
     int Lives = 3;
-    int spawnFactor = 3000;
+    int EnemySpawnFactor = 3000;
 	int LaserSpawnFactor = 0;
     int BulletSpawnFactor = 0;
 

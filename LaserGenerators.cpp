@@ -4,7 +4,7 @@ LaserGenerators::LaserGenerators(Screen screen)
     : _screen(screen)
 {
     _IsAlive = true;
-    _LaserGeneratorsPos.setRadius(screen.getObjectRadius());
+    _LaserGeneratorsPos.setRadius(Radius);
     _LaserGeneratorsPos.SetInitialX(screen.getScreenCentreX());
     _LaserGeneratorsPos.SetInitialY(screen.getScreenCentreY());
     _LaserGeneratorsPos.SetCurrentX(screen.getScreenCentreX());
@@ -28,35 +28,23 @@ bool LaserGenerators::Status()
 
 void LaserGenerators::Move()
 {
-    // Set The Speed which the LaserGenerators Moves
-    float LaserGeneratorsSpeed = 0.2;
+    _LaserGeneratorsPos.setAngle(_LaserGeneratorsPos.GetAngle() + _LaserSpeed);
 
-    _LaserGeneratorsPos.setAngle(_PlayerAngle);
-    // Calculate the Distance to the Player
-    _DistToPlayer = sqrt((_PlayerXPos - _screen.getScreenCentreX()) * (_PlayerXPos - _screen.getScreenCentreX()) +
-        (_PlayerYPos - _screen.getScreenCentreY()) * (_PlayerYPos - _screen.getScreenCentreY()));
-
-    // Increment the X and Y values towards the Players position
-    auto _xIncrement = LaserGeneratorsSpeed * (_PlayerXPos - _screen.getScreenCentreX()) / _DistToPlayer;
-    auto _yIncrement = LaserGeneratorsSpeed * (_PlayerYPos - _screen.getScreenCentreY()) / _DistToPlayer;
-
-    // Set the Current Position of the asteroid
-    float _UpdateXPos = _LaserGeneratorsPos.GetCurrentX();
-    float _UpdateYPos = _LaserGeneratorsPos.GetCurrentY();
-
-    // Incremnet and Set the Current position of LaserGenerators towards the Player
-    _UpdateXPos += _xIncrement;
-    _UpdateYPos += _yIncrement;
-    _LaserGeneratorsPos.SetCurrentX(_UpdateXPos);
-    _LaserGeneratorsPos.SetCurrentY(_UpdateYPos);
+    // Set New Co-Ordinates for Laser Generators Move
+    _LaserGeneratorsPos.SetCurrentX(
+        _LaserGeneratorsPos.GetInitialX() + _LaserGeneratorsPos.GetRadius() * cos(_LaserGeneratorsPos.GetAngle()));
+    _LaserGeneratorsPos.SetCurrentY(
+        _LaserGeneratorsPos.GetInitialY() + _LaserGeneratorsPos.GetRadius() * sin(_LaserGeneratorsPos.GetAngle()));
 
     // Check The Position of the LaserGenerators is on the screen otherwise Kill LaserGenerators
-    if(_LaserGeneratorsPos.GetCurrentX() >= _screen.getScreenWidth() || _LaserGeneratorsPos.GetCurrentY() <= 0) {
-	Kill();
-    } else if(_LaserGeneratorsPos.GetCurrentX() <= 0 ||
-        _LaserGeneratorsPos.GetCurrentY() >= _screen.getScreenHeight()) {
-	Kill();
+    if(_LaserGeneratorsPos.GetRadius() >= _screen.getObjectRadius()) {
+
+	Radius -= 0.03;
+    } else {
+	Radius += 0.03;
     }
+
+    _LaserGeneratorsPos.setRadius(Radius);
 }
 
 bool LaserGenerators::Respawns()

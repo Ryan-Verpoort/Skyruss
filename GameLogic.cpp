@@ -55,11 +55,28 @@ void GameLogic::Run()
     }
 }
 
+void GameLogic::drawSplashScreen()
+{
+    _presentation.displaySplashScreen();
+}
+
+void GameLogic::drawControlScreen()
+{
+    _presentation.displayControlScreen();
+}
+
+// Check For user inputs
 void GameLogic::UserInputs()
 {
     _presentation.UserInputs();
 }
 
+void GameLogic::CheckCollisions()
+{
+    _collisionHandler.CheckForCollisions(_gameObjects);
+}
+
+// Update Player position and shooting accordingly
 void GameLogic::PlayerUpdate()
 {
 
@@ -84,9 +101,10 @@ void GameLogic::PlayerUpdate()
 
 void GameLogic::renderObjects()
 {
-
+    // Display all Objects which are alive
     _presentation.renderWindow(_gameObjects);
-    // In line Queries on data lambda thing
+
+    // Remove dead objects from vector using lamda function to return true to the remove function if its status is dead
     _gameObjects.erase(remove_if(_gameObjects.begin(), _gameObjects.end(),
                            [](shared_ptr<MovingObjects>& ObjectsInGame) { return (!ObjectsInGame->Status()); }),
         _gameObjects.end());
@@ -94,13 +112,18 @@ void GameLogic::renderObjects()
 
 void GameLogic::ObjectUpdate()
 {
+
+    // Update Objects positions and move objects accordingly
     for(auto& gameObject : _gameObjects) {
 
+	// Keep track of number of satellites killed for upgrade
 	if(gameObject->GetObject() == Objects::Satellites) {
 	    if(!gameObject->Status()) {
 		NumOfSats--;
 	    }
 	}
+
+	// Keep track of number of enemies killed for game over
 	if(gameObject->GetObject() == Objects::Enemy) {
 	    if(!gameObject->Status()) {
 		EnemiesKilled++;
@@ -109,6 +132,8 @@ void GameLogic::ObjectUpdate()
 	if(gameObject->Status()) {
 	    gameObject->Move();
 	}
+
+	// Allow for Enemy to respawn at centre when moved off screen
 	if(gameObject->Respawns()) {
 	    Alien = make_shared<Enemy>(_screen);
 	    _gameObjects.push_back(Alien);
@@ -117,30 +142,33 @@ void GameLogic::ObjectUpdate()
 	}
     }
 }
-
 void GameLogic::EnemySpawn()
 {
-    if(spawnFactor == 3000 && Enemies < 10) {
+    // Spawn factor to delay enemy spawning and if met spawns an enemy
+    if(EnemySpawnFactor == 3000 && Enemies < 10) {
 	Alien = make_shared<Enemy>(_screen);
 	_gameObjects.push_back(Alien);
 	_gameObjects.push_back(Alien->Shoot());
 
 	Enemies++;
-	spawnFactor = 0;
+	EnemySpawnFactor = 0;
     }
-    spawnFactor++;
+    EnemySpawnFactor++;
 }
 
 void GameLogic::AsteroidSpawn()
 {
-    int randomSpawnFactor = rand() % 10000;
-    if(randomSpawnFactor == 10 && DestroyerSpawn == false) {
+
+    // Random intervals for asteroid Spawn between 0 and 9999
+    int randomAsteroidSpawn = rand() % 10000;
+    if(randomAsteroidSpawn == 10 && DestroyerSpawn == false) {
 	Destroyer = make_shared<Asteroid>(_screen);
 	Destroyer->PlayersPos(PlayerShip);
 	_gameObjects.push_back(Destroyer);
 	DestroyerSpawn = true;
     }
 
+    // Respawn the Asteroid when off screen for next attack
     if(DestroyerSpawn == true) {
 	if(!Destroyer->Status()) {
 	    DestroyerSpawn = false;
@@ -148,20 +176,12 @@ void GameLogic::AsteroidSpawn()
     }
 }
 
-void GameLogic::drawSplashScreen()
-{
-    _presentation.displaySplashScreen();
-}
-
-void GameLogic::drawControlScreen()
-{
-    _presentation.displayControlScreen();
-}
-
 void GameLogic::SatelliteSpawn()
 {
-    int randomSpawnFactor = rand() % 10000;
-    if(randomSpawnFactor == 1 && NASASpawn == false) {
+
+    // Random spawn interval for satellites to spawn
+    int randomSatelliteSpawn = rand() % 10000;
+    if(randomSatelliteSpawn == 1 && NASASpawn == false) {
 	for(int i = 1; i <= 3; i++) {
 	    NASA = make_shared<Satellite>(_screen, i);
 	    NASA->PlayersPos(PlayerShip);
@@ -175,7 +195,9 @@ void GameLogic::SatelliteSpawn()
 
 void GameLogic::BulletsSpawn()
 {
+    // Delay on Bullet firing
     if(BulletSpawnFactor == 1000) {
+	// For all objects that shoot shoot
 	for(auto& gameObject : _ShootingGameObjects) {
 
 	    if(gameObject->GetObject() == Objects::Satellites && NASASpawn == true) {
@@ -196,6 +218,7 @@ void GameLogic::BulletsSpawn()
 
 void GameLogic::CheckForUpgrade()
 {
+    // Check for player weapon upgrade if all satellites are killed and player has not died after
     if(NumOfSats == 0) {
 	PlayerShip->WeaponUpgrade();
 	NumOfSats--;
@@ -205,46 +228,38 @@ void GameLogic::CheckForUpgrade()
     }
 }
 
+void GameLogic::LasersSpawn()
+{
+    // Delay on laser generators spaning
+    int randomLaserSpawn = rand() % 10000;
+    if(randomLaserSpawn == 10 && LaserSpawn == false) {
+	Laser = make_shared<LaserGenerators>(_screen);
+	Laser->PlayersPos(PlayerShip);
+	_gameObjects.push_back(Laser);
+	LaserSpawn = true;
+    }
+}
+
+// Reset all variables for Restart of the game
 void GameLogic::Restart()
 {
     _IsPlaying = true;
 
     NASASpawn = false;
     DestroyerSpawn = false;
-    LaserSpawn = false;
 
     _gameObjects.clear();
     _ShootingGameObjects.clear();
-
-    Lives = 3;
-
+    Lives = 4;
     PlayerShip = make_shared<Player>(_screen, Lives);
     _gameObjects.push_back(PlayerShip);
-
     for(int i = 1; i <= Lives - 1; i++) {
 	_Lives = make_shared<PlayerLives>(_screen, i);
 	_gameObjects.push_back(_Lives);
-	// Run();
     }
-
+    PlayerShip->Kill();
     PlayerShip->setDirection(PlayerDirection::Hold);
     EnemiesKilled = 0;
     Enemies = 0;
-    NumOfSats = 3;
-}
-
-void GameLogic::CheckCollisions()
-{
-    _collisionHandler.CheckForCollisions(_gameObjects);
-}
-
-void GameLogic::LasersSpawn()
-{
-    int randomSpawnFactor = rand() % 10000;
-    if(randomSpawnFactor == 10 && LaserSpawn == false) {
-	Laser = make_shared<LaserGenerators>(_screen);
-	Laser->PlayersPos(PlayerShip);
-	_gameObjects.push_back(Laser);
-	LaserSpawn = true;
-    }
+    Run();
 }

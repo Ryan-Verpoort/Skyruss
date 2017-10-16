@@ -31,6 +31,8 @@ private:
     ObjectsPosition _PlayerPos;
     bool _IsAlive;
     Screen _screen;
+    float Radius = 0;
+    float _LaserSpeed = 0.005;
     float _PlayerXPos;
     float _PlayerYPos;
     float _PlayerAngle;
